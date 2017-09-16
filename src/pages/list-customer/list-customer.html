@@ -7,8 +7,9 @@
 </ion-header>
 
 <ion-content padding>
+  <ion-searchbar (ionInput)="filterCustomers($event)"></ion-searchbar>
   <ion-list>
-    <button ion-item *ngFor="let customer of customers| async" (click)="itemSelected(item)">
+    <button ion-item *ngFor="let customer of cusList" (click)="itemSelected(customer)">
     {{ customer.name }}
   </button>
   </ion-list>

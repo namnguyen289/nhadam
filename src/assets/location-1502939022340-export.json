@@ -1,0 +1,278 @@
+{
+  "customers" : {
+    "-Ku3XbagwgNvb57AIfLl" : {
+      "name" : "Anh Nguyễn",
+      "orderTime" : -10,
+      "orderedQuantiry" : -60
+    },
+    "-Ku3Xbai4q5SFQfvd8kF" : {
+      "name" : "Cậu Cải",
+      "orderTime" : -1,
+      "orderedQuantiry" : -6
+    },
+    "-Ku3Xbai4q5SFQfvd8kG" : {
+      "name" : "Châu Trương",
+      "orderTime" : -1,
+      "orderedQuantiry" : -6
+    },
+    "-Ku3Xbaj_BXYIWO_6xSl" : {
+      "name" : "Chồng mập",
+      "orderTime" : -11
+    },
+    "-Ku3Xbaj_BXYIWO_6xSm" : {
+      "name" : "Cường Lê",
+      "orderTime" : -1,
+      "orderedQuantiry" : -6
+    },
+    "-Ku3Xbaj_BXYIWO_6xSn" : {
+      "name" : "Cường Phan",
+      "orderTime" : -1,
+      "orderedQuantiry" : -6
+    },
+    "-Ku3Xbaj_BXYIWO_6xSo" : {
+      "name" : "Dì 7",
+      "orderTime" : -1,
+      "orderedQuantiry" : -6
+    },
+    "-Ku3Xbaj_BXYIWO_6xSp" : {
+      "name" : "Dung",
+      "orderTime" : -1,
+      "orderedQuantiry" : -6
+    },
+    "-Ku3Xbaj_BXYIWO_6xSq" : {
+      "name" : "Dũng Đào SD",
+      "orderTime" : -1,
+      "orderedQuantiry" : -6
+    },
+    "-Ku3Xbaj_BXYIWO_6xSr" : {
+      "name" : "Dung Đỗ",
+      "orderTime" : -1,
+      "orderedQuantiry" : -6
+    },
+    "-Ku3Xbaj_BXYIWO_6xSs" : {
+      "name" : "Dũng Nguyễn",
+      "orderTime" : -1,
+      "orderedQuantiry" : -6
+    },
+    "-Ku3XbakHc_cnwrrdlsX" : {
+      "name" : "Đoàn Nguyễn",
+      "orderTime" : -1,
+      "orderedQuantiry" : -6
+    },
+    "-Ku3XbakHc_cnwrrdlsY" : {
+      "name" : "Đức Nguyễn",
+      "orderTime" : -1,
+      "orderedQuantiry" : -6
+    },
+    "-Ku3XbakHc_cnwrrdlsZ" : {
+      "name" : "Giang Nguyễn",
+      "orderTime" : -1,
+      "orderedQuantiry" : -6
+    },
+    "-Ku3XbakHc_cnwrrdls_" : {
+      "name" : "Giang Phạm",
+      "orderTime" : -1,
+      "orderedQuantiry" : -6
+    },
+    "-Ku3XbakHc_cnwrrdlsa" : {
+      "name" : "Giang Võ",
+      "orderTime" : -1,
+      "orderedQuantiry" : -6
+    },
+    "-Ku3XbakHc_cnwrrdlsb" : {
+      "name" : "Hải Vũ",
+      "orderTime" : -1,
+      "orderedQuantiry" : -6
+    },
+    "-Ku3XbakHc_cnwrrdlsc" : {
+      "name" : "Hạnh SD",
+      "orderTime" : -1,
+      "orderedQuantiry" : -6
+    },
+    "-Ku3XbakHc_cnwrrdlsd" : {
+      "name" : "Hào Lương",
+      "orderTime" : -1,
+      "orderedQuantiry" : -6
+    },
+    "-Ku3Xbal77JGYTCnyGYE" : {
+      "name" : "Hằng Hồ",
+      "orderTime" : -1,
+      "orderedQuantiry" : -6
+    },
+    "-Ku3Xbal77JGYTCnyGYF" : {
+      "name" : "Hòa Nguyễn",
+      "orderTime" : -1,
+      "orderedQuantiry" : -6
+    },
+    "-Ku3Xbal77JGYTCnyGYG" : {
+      "name" : "Hoàng Trần",
+      "orderTime" : -1,
+      "orderedQuantiry" : -6
+    },
+    "-Ku3Xbal77JGYTCnyGYH" : {
+      "name" : "Huy Hoang",
+      "orderTime" : -1,
+      "orderedQuantiry" : -6
+    },
+    "-Ku3Xbal77JGYTCnyGYI" : {
+      "name" : "Khang Đống",
+      "orderTime" : -1,
+      "orderedQuantiry" : -6
+    },
+    "-Ku3Xbal77JGYTCnyGYJ" : {
+      "name" : "Khiêm",
+      "orderTime" : -1,
+      "orderedQuantiry" : -6
+    },
+    "-Ku3Xbal77JGYTCnyGYK" : {
+      "name" : "Kiểu Lê",
+      "orderTime" : -1,
+      "orderedQuantiry" : -6
+    },
+    "-Ku3Xbal77JGYTCnyGYL" : {
+      "name" : "Lâm Nguyễn",
+      "orderTime" : -9,
+      "orderedQuantiry" : -6
+    },
+    "-Ku3XbamR814LHvomOk2" : {
+      "name" : "Lợi Đỗ",
+      "orderTime" : -1,
+      "orderedQuantiry" : -6
+    },
+    "-Ku3XbamR814LHvomOk3" : {
+      "name" : "Lực Dương",
+      "orderTime" : -15,
+      "orderedQuantiry" : -6
+    },
+    "-Ku3XbamR814LHvomOk4" : {
+      "name" : "Minh Đỗ",
+      "orderTime" : -1,
+      "orderedQuantiry" : -6
+    },
+    "-Ku3XbamR814LHvomOk5" : {
+      "name" : "Nghĩa Nguyễn",
+      "orderTime" : -8,
+      "orderedQuantiry" : -6
+    },
+    "-Ku3XbamR814LHvomOk6" : {
+      "name" : "Ngọc Anh",
+      "orderTime" : -1,
+      "orderedQuantiry" : -6
+    },
+    "-Ku3XbamR814LHvomOk7" : {
+      "name" : "Nhà chú",
+      "orderTime" : -1,
+      "orderedQuantiry" : -6
+    },
+    "-Ku3XbamR814LHvomOk8" : {
+      "name" : "Nhứt Trịnh",
+      "orderTime" : -1,
+      "orderedQuantiry" : -6
+    },
+    "-Ku3XbamR814LHvomOk9" : {
+      "name" : "Niệm Huỳnh",
+      "orderTime" : -1,
+      "orderedQuantiry" : -6
+    },
+    "-Ku3XbamR814LHvomOkA" : {
+      "name" : "Oanh Nguyễn",
+      "orderTime" : -1,
+      "orderedQuantiry" : -6
+    },
+    "-Ku3XbanbRQ14yKK-dKl" : {
+      "name" : "Phú Lâm",
+      "orderTime" : -1,
+      "orderedQuantiry" : -6
+    },
+    "-Ku3XbanbRQ14yKK-dKm" : {
+      "name" : "Phúc Bùi",
+      "orderTime" : -1,
+      "orderedQuantiry" : -6
+    },
+    "-Ku3XbanbRQ14yKK-dKn" : {
+      "name" : "Phượng Nguyễn",
+      "orderTime" : -1,
+      "orderedQuantiry" : -6
+    },
+    "-Ku3XbanbRQ14yKK-dKo" : {
+      "name" : "Sơn Lê",
+      "orderTime" : -1,
+      "orderedQuantiry" : -6
+    },
+    "-Ku3XbanbRQ14yKK-dKp" : {
+      "name" : "Thành Phùng",
+      "orderTime" : -1,
+      "orderedQuantiry" : -6
+    },
+    "-Ku3XbanbRQ14yKK-dKq" : {
+      "name" : "Thảo",
+      "orderTime" : -1,
+      "orderedQuantiry" : -6
+    },
+    "-Ku3XbanbRQ14yKK-dKr" : {
+      "name" : "Thọ",
+      "orderTime" : -1,
+      "orderedQuantiry" : -6
+    },
+    "-Ku3XbanbRQ14yKK-dKs" : {
+      "name" : "Thoa Điền",
+      "orderTime" : -1,
+      "orderedQuantiry" : -6
+    },
+    "-Ku3Xbaok1yLAYPaoRFw" : {
+      "name" : "Tiến Lê",
+      "orderTime" : -1,
+      "orderedQuantiry" : -6
+    },
+    "-Ku3Xbaok1yLAYPaoRFx" : {
+      "name" : "Tiên Nguyễn",
+      "orderTime" : -1,
+      "orderedQuantiry" : -6
+    },
+    "-Ku3Xbaok1yLAYPaoRFy" : {
+      "name" : "Trang Trương",
+      "orderTime" : -1,
+      "orderedQuantiry" : -6
+    },
+    "-Ku3Xbaok1yLAYPaoRFz" : {
+      "name" : "Tuấn Châu",
+      "orderTime" : -1,
+      "orderedQuantiry" : -6
+    },
+    "-Ku3Xbaok1yLAYPaoRG-" : {
+      "name" : "Tuyền",
+      "orderTime" : -1,
+      "orderedQuantiry" : -6
+    },
+    "-Ku3Xbaok1yLAYPaoRG0" : {
+      "name" : "Tuyền Trương",
+      "orderTime" : -1,
+      "orderedQuantiry" : -6
+    },
+    "-Ku3Xbaok1yLAYPaoRG1" : {
+      "name" : "Việt Trình",
+      "orderTime" : -1,
+      "orderedQuantiry" : -6
+    },
+    "-Ku3Xbaok1yLAYPaoRG2" : {
+      "name" : "Vũ Ngô",
+      "orderTime" : -1,
+      "orderedQuantiry" : -6
+    },
+    "-Ku3Xbaok1yLAYPaoRG3" : {
+      "name" : "Long Lý",
+      "orderTime" : -1,
+      "orderedQuantiry" : -6
+    },
+    "-Ku3XbapbBaMR-XfVCeD" : {
+      "name" : "Diễm Huỳnh",
+      "orderTime" : -1,
+      "orderedQuantiry" : -6
+    },
+    "-Ku3XbapbBaMR-XfVCeE" : {
+      "name" : "Ngọc Nguyễn",
+      "orderTime" : -1,
+      "orderedQuantiry" : -6
+    }
+  }
+}

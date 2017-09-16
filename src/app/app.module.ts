@@ -3,33 +3,51 @@ import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 
-import { AboutPage } from '../pages/about/about';
 import { ContactPage } from '../pages/contact/contact';
-import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
+import {ListCustomerPage} from '../pages/list-customer/list-customer';
+import {AddOrderPage} from '../pages/add-order/add-order';
+import {ListOrderPage} from '../pages/list-order/list-order';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+
+export const firebaseConfig = {
+  apiKey: "AIzaSyDGsn_tXn0zgzKwHi910GtcG9xmwMuDZE4",
+  authDomain: "location-1502939022340.firebaseapp.com",
+  databaseURL: "https://location-1502939022340.firebaseio.com",
+  projectId: "location-1502939022340",
+  storageBucket: "location-1502939022340.appspot.com",
+  messagingSenderId: "757804405892"
+};
 @NgModule({
   declarations: [
     MyApp,
-    AboutPage,
     ContactPage,
-    HomePage,
-    TabsPage
+    TabsPage,
+    ListCustomerPage,
+    AddOrderPage,
+    ListOrderPage
   ],
   imports: [
     BrowserModule,
+    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireDatabaseModule,
+    AngularFireAuthModule,
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    AboutPage,
     ContactPage,
-    HomePage,
-    TabsPage
+    TabsPage,
+    ListCustomerPage,
+    AddOrderPage,
+    ListOrderPage
   ],
   providers: [
     StatusBar,

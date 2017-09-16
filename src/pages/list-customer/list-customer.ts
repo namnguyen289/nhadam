@@ -1,14 +1,26 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { AlertController } from 'ionic-angular';
+import {AddOrderPage} from '../add-order/add-order';
 
 import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
+/**
+ * Generated class for the ListCustomerPage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
 
+@IonicPage()
 @Component({
-  selector: 'page-about',
-  templateUrl: 'about.html'
+  selector: 'page-list-customer',
+  templateUrl: 'list-customer.html',
 })
-export class AboutPage {
+export class ListCustomerPage {
+
   customers:FirebaseListObservable<any[]>;
+  cusList:any[];
+  bCusList:any[];
   cus:any = [
     {name:'Anh Nguyễn'},
     {name:'Cậu Cải'},
@@ -66,8 +78,44 @@ export class AboutPage {
     {name:'Diễm Huỳnh'},
     {name:'Ngọc Nguyễn'},
   ];
-  constructor(public navCtrl: NavController, db:AngularFireDatabase) {
-    this.customers = db.list("/customers");
+  constructor(public navCtrl: NavController, public navParams: NavParams, db:AngularFireDatabase,public alertCtrl: AlertController) {
+    this.customers = db.list("/customers",{query:{orderByChild:"orderTime"}});
+    this.customers.subscribe(val=>{
+      this.cusList = val;
+      this.bCusList = JSON.parse(JSON.stringify(this.cusList));
+    },err=>{
+      this.showAlert("Error",err);
+    });
+  }
+  itemSelected(item){
+    console.log(JSON.stringify(item));
+    this.navCtrl.push(AddOrderPage,{user:item,key:item.$key});
+  }
+  filterCustomers(event){
+
+    this.cusList = JSON.parse(JSON.stringify(this.bCusList));
+    let val = event.target.value;
+    if(val && val.trim() !=""){
+      this.cusList = this.cusList.filter(item=>{
+        return (item.name.toLowerCase().indexOf(val.toLowerCase()) > -1);
+      })
+      if(this.cusList.length == 0){
+        this.cusList.push({name:val});
+      }
+    }
+  }
+
+  ionViewDidLoad() {
+    console.log('ionViewDidLoad ListCustomerPage');
+  }
+
+  showAlert(title,message) {
+    let alert = this.alertCtrl.create({
+      title: title,
+      subTitle: message,
+      buttons: ['OK']
+    });
+    alert.present();
   }
 
 }
