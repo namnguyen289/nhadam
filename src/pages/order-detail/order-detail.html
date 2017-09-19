@@ -1,0 +1,36 @@
+<!--
+  Generated template for the OrderDetailPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Order Detail</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <h2>{{ order.name }}</h2>
+  <br />
+  <ion-item>
+    <ion-label stacked>Số lượng</ion-label>
+    <ion-input type="number" [(ngModel)]="order.quantity" value={{order.quantity}} placeholder="Number Input with no label"></ion-input>
+  </ion-item>
+  <br />
+  <ion-item>
+    <ion-label stacked>Độ ngọt</ion-label>
+    <ion-input type="text" [(ngModel)]="order.sweetLevelName" value={{order.sweetLevelName}} ></ion-input>
+  </ion-item>
+  <br />
+  <ion-item>
+    <ion-label stacked>Comment</ion-label>
+    <ion-input [(ngModel)]="order.comment" type="text" value=""></ion-input>
+  </ion-item>
+  <button ion-button color="secondary"  round (click)="finished()">Finished</button>
+  <button ion-button  round (click)="save()">Save</button>
+  <button ion-button color="danger" round (click)="deleteOrder()">Delete</button>
+</ion-content>

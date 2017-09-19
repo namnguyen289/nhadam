@@ -21,29 +21,39 @@ export class AddOrderPage {
 
   user: any;
   sweetLvls: any[];
+  detailFlag:boolean = false;
+  orderedQuantiry:any
   constructor(public navCtrl: NavController, public navParams: NavParams, public db: AngularFireDatabase, public alertCtrl: AlertController) {
     this.user = this.navParams.get("user");
     this.user.key = this.navParams.get("key");
     this.user.quantity = 1;
     this.user.sweetLevel = 2;
     this.user.sweetLevelName = "Ít ngọt";
-    this.user.done = false;
+    this.user.done = 'N';
+    this.user.orderedQuantiry = this.user.orderedQuantiry ? this.user.orderedQuantiry : 0;
+    this.user.bonusOrderedQuantiry = this.user.bonusOrderedQuantiry ? this.user.bonusOrderedQuantiry : 0;
+    this.user.bonusQuantiry = this.user.bonusQuantiry ? this.user.bonusQuantiry : 0;
+    this.user.orderTime = this.user.orderTime ? this.user.orderTime : 0;
+    this.orderedQuantiry = this.user.orderedQuantiry*-1;
     db.list("/sweetLevel", { query: { orderByChild: "lvl" } }).subscribe(val => {
       this.sweetLvls = val;
     }, err => {
-      this.showAlert("Error", err,()=>{this.navCtrl.pop();});
+      this.showAlert("Error", err, () => { this.navCtrl.pop(); });
     });
   }
 
+  showDetail(){
+    this.detailFlag = !this.detailFlag;
+  }
   ionViewDidLoad() {
     console.log('ionViewDidLoad AddOrderPage');
   }
 
-  showAlert(title, message,callback) {
+  showAlert(title, message, callback) {
     let alert = this.alertCtrl.create({
       title: title,
       subTitle: message,
-      buttons: [{ text: 'OK', handler: callback},]
+      buttons: [{ text: 'OK', handler: callback },]
     });
     alert.present();
   }
@@ -55,47 +65,76 @@ export class AddOrderPage {
     this.user.sweetLevelName = slvl.name;
   }
   save() {
-    this.db.list("/orders").push(this.user).then(data=>{
-      this.showAlert("Success", "Save successfully",()=>{this.navCtrl.pop();});
-      
-    });
-    /*let firstT ime = true;
-    this.db.list("/orders", {
-      query: {
-        orderByChild: "name",
-        equalTo: this.user.name
-      }
-    }).subscribe(data => {
-      if (firstTime) {
-        firstTime = false;
-        if (data && data.length > 0) {
-          data.forEach(dt => {
-            if (dt.name == this.user.name && dt.done == false) {
-              let confirm = this.alertCtrl.create({
-                title: 'Daplicated Order?',
-                message: 'Do you agree to override old order?' + " Quantity:" + dt.quantity + " Sweet level:" + dt.sweetLevelName,
-                buttons: [
-                  { text: 'Disagree', handler: () => { this.db.list("/orders").push(this.user);this.navCtrl.pop(); } },
-                  { text: 'Agree', handler: () => { this.user.bkdt = dt; this.db.list("/orders").set(dt.$key, this.user);this.navCtrl.pop(); } }
-                ]
-              });
-              confirm.present();
-            } else {
-              if (dt.$key == data[data.length - 1].$key) {
-                this.db.list("/orders").push(this.user);
-                this.navCtrl.pop();
-              }
-            }
-          });
-        } else {
-          this.db.list("/orders").push(this.user);
-          this.navCtrl.pop();
-        }
-      }
-    }, err => {
-      this.showAlert("Error", err);
-      firstTime = true;
-    });
- */
+    this.user.createTime = (new Date()).toString();
+    if (!this.user.key) {
+      this.db.list("/customers").push({
+        name: this.user.name,
+        orderedQuantiry: 0,
+        orderTime: 0
+      }).then(val => {
+        this.user.key = val.key;
+        this.db.list("/orders").push(this.user).then(data => {
+          this.showAlert("Success", "Save successfully", () => { this.navCtrl.pop(); });
+        });
+      });
+    } else {
+      this.db.list("/orders").push(this.user).then(data => {
+        this.showAlert("Success", "Save successfully", () => { this.navCtrl.pop(); });
+      });
+    }
   }
+  formatNo(event){
+    let val = event.target.value;
+    val = val?Number.parseInt(val):'';
+    val = this.removezero(val.toString())
+    event.target.value = val;
+  }
+  removezero(number:string){
+    if(number=='0') return '';
+    let arr=number.split('');
+    if(arr.length>1 && arr[0]=='0')
+    {
+      return this.removezero(arr.slice(0,1).join(''));
+    }
+    return number;
+  }
+  /*let firstT ime = true;
+  this.db.list("/orders", {
+    query: {
+      orderByChild: "name",
+      equalTo: this.user.name
+    }
+  }).subscribe(data => {
+    if (firstTime) {
+      firstTime = false;
+      if (data && data.length > 0) {
+        data.forEach(dt => {
+          if (dt.name == this.user.name && dt.done == false) {
+            let confirm = this.alertCtrl.create({
+              title: 'Duplicated Order?',
+              message: 'Do you agree to override old order?' + " Quantity:" + dt.quantity + " Sweet level:" + dt.sweetLevelName,
+              buttons: [
+                { text: 'Disagree', handler: () => { this.db.list("/orders").push(this.user);this.navCtrl.pop(); } },
+                { text: 'Agree', handler: () => { this.user.bkdt = dt; this.db.list("/orders").set(dt.$key, this.user);this.navCtrl.pop(); } }
+              ]
+            });
+            confirm.present();
+          } else {
+            if (dt.$key == data[data.length - 1].$key) {
+              this.db.list("/orders").push(this.user);
+              this.navCtrl.pop();
+            }
+          }
+        });
+      } else {
+        this.db.list("/orders").push(this.user);
+        this.navCtrl.pop();
+      }
+    }
+  }, err => {
+    this.showAlert("Error", err);
+    firstTime = true;
+  });
+*/
 }
+

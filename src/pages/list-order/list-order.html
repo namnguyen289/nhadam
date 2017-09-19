@@ -14,5 +14,92 @@
 
 
 <ion-content padding>
+  <ion-toolbar no-border-top>
+    <ion-segment [(ngModel)]="summary">
+      <ion-segment-button value="total">
+        Total
+      </ion-segment-button>
+      <ion-segment-button value="bonus">
+        Bonus
+      </ion-segment-button>
+      <ion-segment-button value="totalmoney">
+        Total Money
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+  <div class="summary" [ngSwitch]="summary">
+    <ion-grid *ngSwitchCase="'total'">
+      <ion-row>
+        <ion-col>
+          <span>Tổng</span>
+          <strong>{{totalSweetByLvl(orders,sweetLvl1) + totalSweetByLvl(orders,sweetLvl2) + totalSweetByLvl(orders,sweetLvl3)}}</strong>
+        </ion-col>
+        <ion-col>
+          <span>Đã nấu</span>
+          <strong><ion-input type="number" value="100"></ion-input></strong>
+        </ion-col>
+        <ion-col>
+            <span>còn lại</span>
+            <strong>{{totalSweetByLvl(orders,sweetLvl1) + totalSweetByLvl(orders,sweetLvl2) + totalSweetByLvl(orders,sweetLvl3) - 100}}</strong>
+          </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <span>Siêu ít ngọt</span>
+          <strong>{{totalSweetByLvl(orders,sweetLvl1)}}</strong>
+        </ion-col>
+        <ion-col>
+          <span>Ít ngọt</span>
+          <strong>{{totalSweetByLvl(orders,sweetLvl2)}}</strong>
+        </ion-col>
+        <ion-col>
+          <span>Ngọt</span>
+          <strong>{{totalSweetByLvl(orders,sweetLvl3)}}</strong>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
 
+    <ion-list *ngSwitchCase="'bonus'">
+      <ion-item>
+        <ion-thumbnail item-start>
+          <img src="assets/img/thumbnail-kitten-1.jpg">
+        </ion-thumbnail>
+        <h2>Luna</h2>
+      </ion-item>
+    </ion-list>
+
+    <ion-list *ngSwitchCase="'totalmoney'">
+      <ion-item>
+        <ion-thumbnail item-start>
+          <img src="assets/img/thumbnail-duckling-4.jpg">
+        </ion-thumbnail>
+        <h2>Louie</h2>
+      </ion-item>
+    </ion-list>
+  </div>
+  <ion-list>
+    <ion-item-sliding *ngFor="let order of orders">
+      <!-- <button ion-item *ngFor="let order of orderList| async" (click)="itemSelected(order)">
+    {{ order.name }}
+  </button> -->
+      <ion-item (click)="showdetail(order)">
+        <div class="leftg">
+          <h2>{{order.name}}</h2>
+          <h3>{{order.sweetLevelName}} Bonus: {{order.bonusQuantiry}}</h3>
+          <p>{{order.comment}}</p>
+        </div>
+        <div class="rightg" item-end>
+         <Strong>{{order.quantity}}</Strong>
+          <ion-icon name="arrow-up" (click)="addQuantity(order)"></ion-icon>
+          <ion-icon name="arrow-down" (click)="minusQuantity(order)"></ion-icon>
+        </div>
+      </ion-item>
+      <ion-item-options side="right">
+        <button ion-button expandable color="danger" (click)="deleteOrder(order)">
+          <ion-icon name="trash"></ion-icon>
+        </button>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+  <!-- <button ion-button full (click)="finishOrder()">Finish Orders</button> -->
 </ion-content>

@@ -117,5 +117,5 @@ export class ListCustomerPage {
     });
     alert.present();
   }
-
+  
 }

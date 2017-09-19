@@ -9,8 +9,8 @@
 <ion-content padding>
   <ion-searchbar (ionInput)="filterCustomers($event)"></ion-searchbar>
   <ion-list>
-    <button ion-item *ngFor="let customer of cusList" (click)="itemSelected(customer)">
+    <h2 ion-item *ngFor="let customer of cusList" (click)="itemSelected(customer)">
     {{ customer.name }}
-  </button>
+    </h2>
   </ion-list>
 </ion-content>

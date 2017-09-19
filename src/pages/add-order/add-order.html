@@ -13,21 +13,42 @@
 </ion-header>
 
 <ion-content padding>
-<h2>{{ user.name }}</h2>
-<br />
-<ion-item>
+  <h2 (click)="showDetail()">{{ user.name }}
+    <ion-icon name="information-circle"></ion-icon>
+  </h2>
+  <div *ngIf="detailFlag">
+    <ion-item>
+      <ion-label stacked>Số chai đã mua:</ion-label>
+      <ion-input type="number" value="{{orderedQuantiry}}" disabled placeholder="Number Input with no label"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label stacked>Số chai từ lần cuối khuyến mãi:</ion-label>
+      <ion-input type="number" value={{user.quantity}} disabled placeholder="Number Input with no label"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label stacked>Số chai cần để khuyến mãi:</ion-label>
+      <ion-input type="number" value={{user.quantity}} disabled placeholder="Number Input with no label"></ion-input>
+    </ion-item>
+  </div>
+  <br />
+  <ion-item>
     <ion-label stacked>Số lượng</ion-label>
-    <ion-input type="number" value={{user.quantity}} placeholder="Number Input with no label"></ion-input>
+    <ion-input type="number" [(ngModel)]="user.quantiry" (keypress)="formatNo($event)" placeholder="Number Input with no label"></ion-input>
+  </ion-item>
+  <br />
+  <ion-item>
+    <ion-label stacked>Số lượng kuyến mãi</ion-label>
+    <ion-input type="number" [(ngModel)]="user.bonusQuantiry" (keypress)="formatNo($event)" placeholder="Number Input with no label"></ion-input>
   </ion-item>
   <br />
 
-<ion-item *ngFor="let slvl of sweetLvls"> 
+  <ion-item *ngFor="let slvl of sweetLvls">
     <ion-label>{{slvl.name}}</ion-label>
-    <ion-checkbox (ionChange)="checkedChange($event,slvl)"></ion-checkbox>
+    <ion-checkbox checked="{{slvl.lvl == 2}}"  (ionChange)="checkedChange($event,slvl)"></ion-checkbox>
   </ion-item>
   <ion-item>
-      <ion-label stacked>Comment</ion-label>
-      <ion-input [(ngModel)]="user.comment" type="text" value=""></ion-input>
-    </ion-item>
+    <ion-label stacked>Comment</ion-label>
+    <ion-input [(ngModel)]="user.comment" type="text" value=""></ion-input>
+  </ion-item>
   <button ion-button full round (click)="save()">Save</button>
 </ion-content>
