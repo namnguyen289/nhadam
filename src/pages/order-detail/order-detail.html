@@ -21,10 +21,13 @@
     <ion-input type="number" [(ngModel)]="order.quantity" value={{order.quantity}} placeholder="Number Input with no label"></ion-input>
   </ion-item>
   <br />
-  <ion-item>
-    <ion-label stacked>Độ ngọt</ion-label>
-    <ion-input type="text" [(ngModel)]="order.sweetLevelName" value={{order.sweetLevelName}} ></ion-input>
-  </ion-item>
+  
+  <ion-list inset radio-group [(ngModel)]="order.sweetLevel">
+      <ion-item *ngFor="let slvl of sweetLvls">
+        <ion-label>{{slvl.name}}</ion-label>
+        <ion-radio value="{{slvl.lvl}}"></ion-radio>
+      </ion-item>
+    </ion-list>
   <br />
   <ion-item>
     <ion-label stacked>Comment</ion-label>

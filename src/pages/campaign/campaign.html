@@ -1,0 +1,117 @@
+<!--
+  Generated template for the CampaignPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Đợt Nấu</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <ion-item>
+    <ion-label>Date</ion-label>
+    <ion-datetime id="time-cook" pickerFormat="DDD D MMM YYYY" displayFormat="DDDD, D MMM YYYY" [(ngModel)]="camp.cookDate"></ion-datetime>
+  </ion-item>
+  <ion-item>
+      <ion-label> Đã hoàn thành</ion-label>
+      <ion-toggle [(ngModel)]="camp.done" checked="false"></ion-toggle>
+    </ion-item>
+  <ion-toolbar>
+    <ion-segment [(ngModel)]="summary">
+      <ion-segment-button value="total">
+        Total
+      </ion-segment-button>
+      <ion-segment-button value="totalmoney">
+        Total Money
+      </ion-segment-button>
+          <ion-segment-button value="orders">
+            List order
+          </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+  <div class="summary" [ngSwitch]="summary">
+    <ion-grid *ngSwitchCase="'total'">
+      <ion-row>
+        <ion-col>
+          <span>Tổng sẽ bán</span>
+          <strong>{{camp.totalSale}}</strong>
+        </ion-col>
+        <ion-col>
+          <span>Tổng Đã nấu</span>
+          <strong><ion-input type="number" (keyup)="numf.formatNo($event)" [(ngModel)]="camp.totalCooked"></ion-input></strong>
+        </ion-col>
+        <ion-col>
+          <span>còn lại</span>
+          <strong>{{camp.totalCooked - camp.totalSale}}</strong>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col *ngFor="let sweetLvl of camp.sweetLvls">
+          <span>{{sweetLvl.name}}</span>
+          <strong>{{sweetLvl.quantity}}</strong>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <ion-list *ngSwitchCase="'orders'">
+      <ion-item>
+        <ion-thumbnail item-start>
+          <img src="assets/img/thumbnail-kitten-1.jpg">
+        </ion-thumbnail>
+        <h2>Luna</h2>
+      </ion-item>
+    </ion-list>
+
+    <ion-grid *ngSwitchCase="'totalmoney'">
+      <ion-row>
+        <ion-col>
+          <span>đơn vị tính: 1000đ</span>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <span>Tổng chi</span>
+          <strong>{{total()}}</strong>
+        </ion-col>
+        <ion-col>
+          <span>Tổng thu</span>
+          <strong><ion-input type="number" (keyup)="numf.formatNo($event)" [(ngModel)]="camp.money.received"></ion-input></strong>
+        </ion-col>
+        <ion-col>
+          <span>Lời</span>
+          <strong>{{numf.numberWithCommas(camp.money.received - total())}}</strong>
+        </ion-col>
+      </ion-row>
+      <ion-row>Chi:</ion-row>
+      <ion-row>
+        <ion-col>
+          <span>Nha đam</span>
+          <strong><ion-input type="number" (keyup)="numf.formatNo($event)" [(ngModel)]="camp.money.capital.aloe"></ion-input></strong>
+        </ion-col>
+        <ion-col>
+          <span>Đường</span>
+          <strong><ion-input type="number" (keyup)="numf.formatNo($event)" [(ngModel)]="camp.money.capital.sugar"></ion-input></strong>
+        </ion-col>
+        <ion-col>
+          <span>Chai</span>
+          <strong><ion-input type="number" (keyup)="numf.formatNo($event)" [(ngModel)]="camp.money.capital.bottle"></ion-input></strong>
+        </ion-col>
+        <ion-col>
+          <span>Khác</span>
+          <strong><ion-input type="number" (keyup)="numf.formatNo($event)" [(ngModel)]="camp.money.capital.other"></ion-input></strong>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+  <ion-buttons padding>
+    <button ion-button col-6 (click)="save()">Save </button>
+    <button ion-button col-5 color="dark" (click)="dismiss()">close </button>
+  </ion-buttons>
+</ion-content>

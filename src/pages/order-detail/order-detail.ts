@@ -18,9 +18,13 @@ import {AngularFireDatabase} from 'angularfire2/database'
 export class OrderDetailPage {
 
   order:any;
+  sweetLvls:any[];
   constructor(public navCtrl: NavController, public navParams: NavParams,public db:AngularFireDatabase,public alertCtrl: AlertController, public loadingCtrl: LoadingController) {
     this.order = this.navParams.get('data');
     this.order.orderKey = this.navParams.get('key');
+    db.list("/sweetLevel", { query: { orderByChild: "lvl" } }).subscribe(val => {
+      this.sweetLvls = val;
+    });
   }
 
   save(){
@@ -36,15 +40,15 @@ export class OrderDetailPage {
     .then(val=>
       {
         this.db.object("/customers/"+this.order.key).update({
-          orderedQuantiry:this.order.orderedQuantiry -this.order.quantity,
-          bonusOrderedQuantiry:this.order.bonusOrderedQuantiry -this.order.quantity,
+          orderedQuantity:this.order.orderedQuantity -this.order.quantity,
+          bonusOrderedQuantity:this.order.bonusOrderedQuantity -this.order.quantity,
           orderTime:this.order.orderTime - 1,
           updateTime:(new Date()).toString()
         });
         // subscribe(data=>{
         //   user=data;
         //   this.db.object("/orders/"+this.order.key).update({
-        //     orderedQuantiry:user.orderedQuantiry -this.order.quantity,
+        //     orderedQuantity:user.orderedQuantity -this.order.quantity,
         //     orderTime:user.orderTime - 1
         //   })
         // });
@@ -58,7 +62,10 @@ export class OrderDetailPage {
       title: 'Delete Order?',
       message: 'Do you want to delete ' + this.order.name + '\'s order?' + " Quantity:" + this.order.quantity,
       buttons: [
-        { text: 'Yes', handler: () => { this.db.list("/orders").remove(this.order.key); }},
+        { text: 'Yes', handler: () => { 
+          this.db.list("/orders").remove(this.order.orderKey); 
+          this.navCtrl.pop();
+        }},
         { text: 'No', handler: () => { return;}}
       ]
     });

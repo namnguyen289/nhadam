@@ -19,7 +19,7 @@
   <div *ngIf="detailFlag">
     <ion-item>
       <ion-label stacked>Số chai đã mua:</ion-label>
-      <ion-input type="number" value="{{orderedQuantiry}}" disabled placeholder="Number Input with no label"></ion-input>
+      <ion-input type="number" value="{{orderedQuantity}}" disabled placeholder="Number Input with no label"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label stacked>Số chai từ lần cuối khuyến mãi:</ion-label>
@@ -32,20 +32,32 @@
   </div>
   <br />
   <ion-item>
+    <ion-label stacked>Thời gian nấu</ion-label>
+    <ion-select [(ngModel)]="user.campaign" >
+      <ion-option [value]="camp.$key" *ngFor="let camp of campaigns" >{{camp.name}}</ion-option>
+    </ion-select>
+  </ion-item>
+  <ion-item>
     <ion-label stacked>Số lượng</ion-label>
-    <ion-input type="number" [(ngModel)]="user.quantiry" (keypress)="formatNo($event)" placeholder="Number Input with no label"></ion-input>
+    <ion-input type="number" [(ngModel)]="user.quantity" (keyup)="num.formatNo($event)" placeholder="Number Input with no label"></ion-input>
   </ion-item>
   <br />
   <ion-item>
     <ion-label stacked>Số lượng kuyến mãi</ion-label>
-    <ion-input type="number" [(ngModel)]="user.bonusQuantiry" (keypress)="formatNo($event)" placeholder="Number Input with no label"></ion-input>
+    <ion-input type="number" [(ngModel)]="user.bonusQuantity" (keyup)="num.formatNo($event)" placeholder="Number Input with no label"></ion-input>
   </ion-item>
   <br />
 
-  <ion-item *ngFor="let slvl of sweetLvls">
+  <!-- <ion-item >
     <ion-label>{{slvl.name}}</ion-label>
     <ion-checkbox checked="{{slvl.lvl == 2}}"  (ionChange)="checkedChange($event,slvl)"></ion-checkbox>
-  </ion-item>
+  </ion-item> -->
+  <ion-list inset radio-group [(ngModel)]="user.sweetLevel">
+    <ion-item *ngFor="let slvl of sweetLvls">
+      <ion-label>{{slvl.name}}</ion-label>
+      <ion-radio value="{{slvl.lvl}}"></ion-radio>
+    </ion-item>
+  </ion-list>
   <ion-item>
     <ion-label stacked>Comment</ion-label>
     <ion-input [(ngModel)]="user.comment" type="text" value=""></ion-input>

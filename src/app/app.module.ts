@@ -9,7 +9,8 @@ import {ListCustomerPage} from '../pages/list-customer/list-customer';
 import {AddOrderPage} from '../pages/add-order/add-order';
 import {ListOrderPage} from '../pages/list-order/list-order';
 import {OrderDetailPage} from '../pages/order-detail/order-detail';
-
+import {ListCampaignPage} from '../pages/list-campaign/list-campaign';
+import {CampaignPage} from '../pages/campaign/campaign';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -18,6 +19,7 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { NumberFunctionProvider } from '../providers/number-function/number-function';
+import { CommonDataProvider } from '../providers/common-data/common-data';
 
 export const firebaseConfig = {
   apiKey: "AIzaSyDGsn_tXn0zgzKwHi910GtcG9xmwMuDZE4",
@@ -35,7 +37,9 @@ export const firebaseConfig = {
     ListCustomerPage,
     AddOrderPage,
     ListOrderPage,
-    OrderDetailPage
+    OrderDetailPage,
+    ListCampaignPage,
+    CampaignPage
   ],
   imports: [
     BrowserModule,
@@ -52,13 +56,16 @@ export const firebaseConfig = {
     ListCustomerPage,
     AddOrderPage,
     ListOrderPage,
-    OrderDetailPage
+    OrderDetailPage,
+    ListCampaignPage,
+    CampaignPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    NumberFunctionProvider
+    NumberFunctionProvider,
+    CommonDataProvider
   ]
 })
 export class AppModule {}

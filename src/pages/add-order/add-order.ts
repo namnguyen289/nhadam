@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { AlertController } from 'ionic-angular';
-
+import { AlertController, LoadingController } from 'ionic-angular';
+import { NumberFunctionProvider } from '../../providers/number-function/number-function'
 import { AngularFireDatabase } from 'angularfire2/database';
 
 
@@ -21,28 +21,46 @@ export class AddOrderPage {
 
   user: any;
   sweetLvls: any[];
-  detailFlag:boolean = false;
-  orderedQuantiry:any
-  constructor(public navCtrl: NavController, public navParams: NavParams, public db: AngularFireDatabase, public alertCtrl: AlertController) {
+  detailFlag: boolean = false;
+  orderedQuantity: any;
+  campaigns:any[];
+
+  loading = this.loadingCtrl.create({
+    content: 'Please wait...'
+  });
+  constructor(public navCtrl: NavController
+    , public navParams: NavParams
+    , public db: AngularFireDatabase
+    , public alertCtrl: AlertController
+    , public num: NumberFunctionProvider
+    , public loadingCtrl: LoadingController) {
     this.user = this.navParams.get("user");
     this.user.key = this.navParams.get("key");
     this.user.quantity = 1;
     this.user.sweetLevel = 2;
     this.user.sweetLevelName = "Ít ngọt";
     this.user.done = 'N';
-    this.user.orderedQuantiry = this.user.orderedQuantiry ? this.user.orderedQuantiry : 0;
-    this.user.bonusOrderedQuantiry = this.user.bonusOrderedQuantiry ? this.user.bonusOrderedQuantiry : 0;
-    this.user.bonusQuantiry = this.user.bonusQuantiry ? this.user.bonusQuantiry : 0;
+    this.user.orderedQuantity = this.user.orderedQuantity ? this.user.orderedQuantity : 0;
+    this.user.bonusOrderedQuantity = this.user.bonusOrderedQuantity ? this.user.bonusOrderedQuantity : 0;
+    this.user.bonusQuantity = this.user.bonusQuantity ? this.user.bonusQuantity : 0;
     this.user.orderTime = this.user.orderTime ? this.user.orderTime : 0;
-    this.orderedQuantiry = this.user.orderedQuantiry*-1;
+    this.orderedQuantity = this.user.orderedQuantity * -1;
+    this.loading.present();
     db.list("/sweetLevel", { query: { orderByChild: "lvl" } }).subscribe(val => {
       this.sweetLvls = val;
     }, err => {
       this.showAlert("Error", err, () => { this.navCtrl.pop(); });
     });
+    db.list("/campaigns", { query: { orderByChild: "done",equalTo: false } }).subscribe(val => {
+      this.campaigns = val;
+      this.loading.dismissAll();
+    }, err => {
+      this.loading.dismissAll();
+      this.showAlert("Error", err, () => { this.navCtrl.pop(); });
+    });
   }
 
-  showDetail(){
+  showDetail() {
     this.detailFlag = !this.detailFlag;
   }
   ionViewDidLoad() {
@@ -53,7 +71,7 @@ export class AddOrderPage {
     let alert = this.alertCtrl.create({
       title: title,
       subTitle: message,
-      buttons: [{ text: 'OK', handler: callback },]
+      buttons: [{ text: 'OK', handler: callback }]
     });
     alert.present();
   }
@@ -69,7 +87,7 @@ export class AddOrderPage {
     if (!this.user.key) {
       this.db.list("/customers").push({
         name: this.user.name,
-        orderedQuantiry: 0,
+        orderedQuantity: 0,
         orderTime: 0
       }).then(val => {
         this.user.key = val.key;
@@ -82,21 +100,6 @@ export class AddOrderPage {
         this.showAlert("Success", "Save successfully", () => { this.navCtrl.pop(); });
       });
     }
-  }
-  formatNo(event){
-    let val = event.target.value;
-    val = val?Number.parseInt(val):'';
-    val = this.removezero(val.toString())
-    event.target.value = val;
-  }
-  removezero(number:string){
-    if(number=='0') return '';
-    let arr=number.split('');
-    if(arr.length>1 && arr[0]=='0')
-    {
-      return this.removezero(arr.slice(0,1).join(''));
-    }
-    return number;
   }
   /*let firstT ime = true;
   this.db.list("/orders", {

@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { AlertController,LoadingController } from 'ionic-angular';
 import {OrderDetailPage} from '../order-detail/order-detail';
 
+import {CommonDataProvider} from '../../providers/common-data/common-data';
 import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 
 
@@ -25,7 +26,13 @@ export class ListOrderPage {
   sweetLvl2:number=2;
   sweetLvl3:number=3;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams,public db:AngularFireDatabase,public alertCtrl: AlertController, public loadingCtrl: LoadingController) {
+  constructor(public navCtrl: NavController
+    , public navParams: NavParams
+    , public db:AngularFireDatabase
+    , public alertCtrl: AlertController
+    , public loadingCtrl: LoadingController
+    , public cdt:CommonDataProvider
+  ) {
     db.list("/orders",{
       query:{
         orderByChild: 'done',
@@ -42,7 +49,7 @@ export class ListOrderPage {
   totalSweetByLvl(orders:any[],lvl:number){
     let total = 0;
     orders.forEach(order=>{
-      total+= (order.sweetLevel == lvl? (Number.parseInt(order.quantity)+Number.parseInt(order.bonusQuantiry)):0);
+      total+= (order.sweetLevel == lvl? (Number.parseInt(order.quantity)+Number.parseInt(order.bonusQuantity)):0);
     });
     return total;
   }
@@ -95,8 +102,8 @@ export class ListOrderPage {
       }).update(e.$key,{done:'Y'});
       this.db.object("/customers/"+e.$key).subscribe(val=>{
         val.orderTime = val.orderTime?val.orderTime:0;
-        val.orderedQuantiry = val.orderedQuantiry?val.orderedQuantiry:0;
-        this.db.object("/customers/"+e.$key).update({orderTime:(val.orderTime + 1),orderedQuantiry:(val.orderedQuantiry - e.quantity)});
+        val.orderedQuantity = val.orderedQuantity?val.orderedQuantity:0;
+        this.db.object("/customers/"+e.$key).update({orderTime:(val.orderTime + 1),orderedQuantity:(val.orderedQuantity - e.quantity)});
       });
     });
     loading.dismiss();

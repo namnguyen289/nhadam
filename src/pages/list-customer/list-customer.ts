@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { AlertController } from 'ionic-angular';
 import {AddOrderPage} from '../add-order/add-order';
-
 import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 /**
  * Generated class for the ListCustomerPage page.
@@ -78,7 +77,10 @@ export class ListCustomerPage {
     {name:'Diễm Huỳnh'},
     {name:'Ngọc Nguyễn'},
   ];
-  constructor(public navCtrl: NavController, public navParams: NavParams, db:AngularFireDatabase,public alertCtrl: AlertController) {
+  constructor(public navCtrl: NavController, 
+    public navParams: NavParams,
+    public db:AngularFireDatabase,
+    public alertCtrl: AlertController) {
     this.customers = db.list("/customers",{query:{orderByChild:"orderTime"}});
     this.customers.subscribe(val=>{
       this.cusList = val;

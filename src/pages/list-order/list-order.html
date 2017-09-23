@@ -85,7 +85,7 @@
       <ion-item (click)="showdetail(order)">
         <div class="leftg">
           <h2>{{order.name}}</h2>
-          <h3>{{order.sweetLevelName}} Bonus: {{order.bonusQuantiry}}</h3>
+          <h3>{{cdt.getTextSweetLevel(order.sweetLevel)}} Bonus: {{order.bonusQuantity}}</h3>
           <p>{{order.comment}}</p>
         </div>
         <div class="rightg" item-end>

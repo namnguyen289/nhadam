@@ -1,6 +1,4 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
-import 'rxjs/add/operator/map';
 
 /*
   Generated class for the NumberFunctionProvider provider.
@@ -11,8 +9,26 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class NumberFunctionProvider {
 
-  constructor(public http: Http) {
+  constructor() {
     console.log('Hello NumberFunctionProvider Provider');
   }
 
+  formatNo(event) {
+    let val = event.target.value;
+    val = val ? Number.parseInt(val) : '0';
+    val = this.removezero(val.toString())
+    event.target.value = val;
+  }
+
+  removezero(number: string) {
+    if (number == '0') return '0';
+    let arr = number.split('');
+    if (arr.length > 1 && arr[0] == '0') {
+      return this.removezero(arr.slice(0, 1).join(''));
+    }
+    return number;
+  }
+  numberWithCommas(x) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+  }
 }
