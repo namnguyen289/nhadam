@@ -4,7 +4,7 @@ import { AlertController,LoadingController } from 'ionic-angular';
 import {OrderDetailPage} from '../order-detail/order-detail';
 
 import {CommonDataProvider} from '../../providers/common-data/common-data';
-import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
+import { FirebaseListObservable } from 'angularfire2/database';
 
 
 /**
@@ -20,31 +20,26 @@ import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/databa
   templateUrl: 'list-order.html',
 })
 export class ListOrderPage {
-  orderList:FirebaseListObservable<any[]>;
-  orders:any[];
+  // orderList:any;
+  orders:FirebaseListObservable<any[]>;
   sweetLvl1:number=1;
   sweetLvl2:number=2;
   sweetLvl3:number=3;
 
   constructor(public navCtrl: NavController
     , public navParams: NavParams
-    , public db:AngularFireDatabase
+    // , public db:AngularFireDatabase
     , public alertCtrl: AlertController
     , public loadingCtrl: LoadingController
     , public cdt:CommonDataProvider
   ) {
-    db.list("/orders",{
-      query:{
-        orderByChild: 'done',
-        equalTo: 'N'
-      }
-    }).subscribe(data=>this.orders=data);
+    this.orders = this.cdt.getNotFinishedOrder();
   }
   minusQuantity(order){
     if(order.quantity>1){
       order.quantity -= 1;
     }
-    this.db.list("/orders").update(order.$key,order);
+    this.cdt.updateOrder(order.$key,order,()=>{});
   }
   totalSweetByLvl(orders:any[],lvl:number){
     let total = 0;
@@ -56,14 +51,14 @@ export class ListOrderPage {
   addQuantity(order){
     order.quantity = Number.parseInt(order.quantity);
     order.quantity +=1;
-    this.db.list("/orders").update(order.$key,order);
+    this.cdt.updateOrder(order.$key,order,()=>{});
   }
   deleteOrder(order){
     let confirm = this.alertCtrl.create({
       title: 'Delete Order?',
       message: 'Do you want to delete ' + order.name + '\'s order?' + " Quantity:" + order.quantity,
       buttons: [
-        { text: 'Yes', handler: () => { this.db.list("/orders").remove(order.$key); }},
+        { text: 'Yes', handler: () => { this.cdt.removeOrder(order.$key); }},
         { text: 'No', handler: () => { return;}}
       ]
     });

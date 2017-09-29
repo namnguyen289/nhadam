@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, LoadingController, NavController, NavParams, ModalController, AlertController } from 'ionic-angular';
-import { AngularFireDatabase } from 'angularfire2/database';
 import {CampaignPage} from '../campaign/campaign';
+import {CommonDataProvider} from '../../providers/common-data/common-data';
 
 /**
  * Generated class for the ListCampaignPage page.
@@ -23,15 +23,12 @@ export class ListCampaignPage {
   });
   constructor(public navCtrl: NavController
     , public navParams: NavParams
-    ,public modalCtrl: ModalController
-    , public db:AngularFireDatabase
-    ,public alertCtrl: AlertController, public loadingCtrl: LoadingController) {
+    , public modalCtrl: ModalController
+    , public alertCtrl: AlertController
+    , public loadingCtrl: LoadingController 
+    ,public cdt:CommonDataProvider) {
       this.loading.present();
-      db.list('/campaigns',{
-        query:{
-          orderByChild: 'done'
-        }
-      }).subscribe(data=>{
+      this.cdt.getCampaigns().subscribe(data=>{
         this.camps = data.sort((a,b)=>{
           if((new Date(a.cookDate)) > (new Date(b.cookDate)))
             return -1;
@@ -44,23 +41,25 @@ export class ListCampaignPage {
   }
 
   createCampaign(){
-    let modal = this.modalCtrl.create(CampaignPage);
-    modal.present();
+    // let modal = this.modalCtrl.create(CampaignPage);
+    // modal.present();
+    this.navCtrl.push(CampaignPage);
   }
   deleteCamp(camp){
     let confirm = this.alertCtrl.create({
       title: 'Delete Campaign?',
       message: 'Do you want to delete Campaign: ' + camp.name + '?',
       buttons: [
-        { text: 'Yes', handler: () => { this.db.list("/campaigns").remove(camp.$key); }},
+        { text: 'Yes', handler: () => { this.cdt.removeCampaign(camp.$key); }},
         { text: 'No', handler: () => { return;}}
       ]
     });
     confirm.present();
   }
   showdetail(camp){
-    let modal = this.modalCtrl.create(CampaignPage,{camp:camp});
-    modal.present();
+    // let modal = this.modalCtrl.create(CampaignPage,{camp:camp});
+    // modal.present();
+    this.navCtrl.push(CampaignPage,{camp:camp});
   }
   ionViewDidLoad() {
     console.log('ionViewDidLoad ListCampaignPage');

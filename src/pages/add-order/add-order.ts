@@ -2,8 +2,8 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { AlertController, LoadingController } from 'ionic-angular';
 import { NumberFunctionProvider } from '../../providers/number-function/number-function'
-import { AngularFireDatabase } from 'angularfire2/database';
-
+// import { AngularFireDatabase } from 'angularfire2/database';
+import { CommonDataProvider } from '../../providers/common-data/common-data';
 
 /**
  * Generated class for the AddOrderPage page.
@@ -23,42 +23,48 @@ export class AddOrderPage {
   sweetLvls: any[];
   detailFlag: boolean = false;
   orderedQuantity: any;
-  campaigns:any[];
+  bonusOrderedQuantity:any;
+  campaigns: any[];
 
   loading = this.loadingCtrl.create({
     content: 'Please wait...'
   });
   constructor(public navCtrl: NavController
     , public navParams: NavParams
-    , public db: AngularFireDatabase
+    // , public db: AngularFireDatabase
     , public alertCtrl: AlertController
     , public num: NumberFunctionProvider
-    , public loadingCtrl: LoadingController) {
+    , public loadingCtrl: LoadingController
+    , public cdt: CommonDataProvider) {
+    this.loading.present();
     this.user = this.navParams.get("user");
     this.user.key = this.navParams.get("key");
     this.user.quantity = 1;
     this.user.sweetLevel = 2;
-    this.user.sweetLevelName = "Ít ngọt";
     this.user.done = 'N';
     this.user.orderedQuantity = this.user.orderedQuantity ? this.user.orderedQuantity : 0;
     this.user.bonusOrderedQuantity = this.user.bonusOrderedQuantity ? this.user.bonusOrderedQuantity : 0;
     this.user.bonusQuantity = this.user.bonusQuantity ? this.user.bonusQuantity : 0;
     this.user.orderTime = this.user.orderTime ? this.user.orderTime : 0;
     this.orderedQuantity = this.user.orderedQuantity * -1;
-    this.loading.present();
-    db.list("/sweetLevel", { query: { orderByChild: "lvl" } }).subscribe(val => {
-      this.sweetLvls = val;
-    }, err => {
-      this.showAlert("Error", err, () => { this.navCtrl.pop(); });
-    });
-    db.list("/campaigns", { query: { orderByChild: "done",equalTo: false } }).subscribe(val => {
-      this.campaigns = val;
-      this.loading.dismissAll();
+    this.bonusOrderedQuantity = this.user.bonusOrderedQuantity * -1;
+    this.sweetLvls = cdt.getSweetLevels();
+    cdt.getCampaigns().subscribe(data => {
+      this.campaigns = data.filter(dt => !dt.done);
+      if (this.campaigns.length > 0) {
+        this.user.campaign = this.campaigns[0].$key;
+      }else{
+        this.showAlert("Missing Campaign","Please create campaign first!",()=>{
+          this.navCtrl.pop();
+        });
+      }
+      this.loading.dismiss();
     }, err => {
       this.loading.dismissAll();
       this.showAlert("Error", err, () => { this.navCtrl.pop(); });
     });
   }
+
 
   showDetail() {
     this.detailFlag = !this.detailFlag;
@@ -76,27 +82,27 @@ export class AddOrderPage {
     alert.present();
   }
 
-  checkedChange(event, slvl) {
+  /* checkedChange(event, slvl) {
     // console.log(event.checked);
     // console.log(slvl.name);
     this.user.sweetLevel = slvl.lvl;
     this.user.sweetLevelName = slvl.name;
-  }
+  } */
   save() {
     this.user.createTime = (new Date()).toString();
     if (!this.user.key) {
-      this.db.list("/customers").push({
+      this.cdt.addNewCustomer({
         name: this.user.name,
         orderedQuantity: 0,
         orderTime: 0
-      }).then(val => {
+      }, val => {
         this.user.key = val.key;
-        this.db.list("/orders").push(this.user).then(data => {
+        this.cdt.addNewOrder(this.user, data => {
           this.showAlert("Success", "Save successfully", () => { this.navCtrl.pop(); });
         });
       });
     } else {
-      this.db.list("/orders").push(this.user).then(data => {
+      this.cdt.addNewOrder(this.user, data => {
         this.showAlert("Success", "Save successfully", () => { this.navCtrl.pop(); });
       });
     }

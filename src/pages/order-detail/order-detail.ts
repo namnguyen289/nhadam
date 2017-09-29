@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { AlertController,LoadingController } from 'ionic-angular';
-import {AngularFireDatabase} from 'angularfire2/database'
+import { AlertController, LoadingController } from 'ionic-angular';
+// import {AngularFireDatabase} from 'angularfire2/database';
+import { CommonDataProvider } from '../../providers/common-data/common-data';
+import { NumberFunctionProvider } from '../../providers/number-function/number-function';
 
 /**
  * Generated class for the OrderDetailPage page.
@@ -17,34 +19,42 @@ import {AngularFireDatabase} from 'angularfire2/database'
 })
 export class OrderDetailPage {
 
-  order:any;
-  sweetLvls:any[];
-  constructor(public navCtrl: NavController, public navParams: NavParams,public db:AngularFireDatabase,public alertCtrl: AlertController, public loadingCtrl: LoadingController) {
+  order: any;
+  sweetLvls: any[];
+  campaigns: any[];
+  loading = this.loadingCtrl.create({
+    content: 'Please wait...'
+  });
+  constructor(public navCtrl: NavController
+    , public navParams: NavParams
+    , public cdt: CommonDataProvider
+    , public num: NumberFunctionProvider
+    , public alertCtrl: AlertController
+    , public loadingCtrl: LoadingController) {
+    this.loading.present();
     this.order = this.navParams.get('data');
     this.order.orderKey = this.navParams.get('key');
-    db.list("/sweetLevel", { query: { orderByChild: "lvl" } }).subscribe(val => {
-      this.sweetLvls = val;
+    this.sweetLvls = cdt.getSweetLevels();
+    cdt.getCampaigns().subscribe(data => {
+      this.campaigns = data;
+      this.loading.dismiss();
     });
+
   }
 
-  save(){
-    this.db.object("/orders/"+this.order.orderKey).update({
-      quantity:this.order.quantity>0?this.order.quantity:1,
-      comment:this.order.comment?this.order.comment:"",
-      sweetLevelName:this.order.sweetLevelName
-    }).then(val=>this.navCtrl.pop());
+  save() {
+    this.cdt.updateOrder(this.order.orderKey, this.order, val => this.navCtrl.pop());
   }
 
-  finished(){
-    this.db.object("/orders/"+this.order.orderKey).update({done:'Y'})
-    .then(val=>
-      {
-        this.db.object("/customers/"+this.order.key).update({
-          orderedQuantity:this.order.orderedQuantity -this.order.quantity,
-          bonusOrderedQuantity:this.order.bonusOrderedQuantity -this.order.quantity,
-          orderTime:this.order.orderTime - 1,
-          updateTime:(new Date()).toString()
-        });
+  finished() {
+    this.cdt.updateOrder(this.order.orderKey, { done: 'Y' }
+      , val => {
+        this.cdt.updateCustomer(this.order.key, {
+          orderedQuantity: this.order.orderedQuantity - this.order.quantity,
+          bonusOrderedQuantity: this.order.bonusQuantity>0?0: this.order.bonusOrderedQuantity - this.order.quantity,
+          orderTime: this.order.orderTime - 1,
+          updateTime: (new Date()).toString()
+        }, () => { this.navCtrl.pop(); });
         // subscribe(data=>{
         //   user=data;
         //   this.db.object("/orders/"+this.order.key).update({
@@ -53,20 +63,22 @@ export class OrderDetailPage {
         //   })
         // });
 
-        this.navCtrl.pop();
+
       });
   }
 
-  deleteOrder(){
+  deleteOrder() {
     let confirm = this.alertCtrl.create({
       title: 'Delete Order?',
       message: 'Do you want to delete ' + this.order.name + '\'s order?' + " Quantity:" + this.order.quantity,
       buttons: [
-        { text: 'Yes', handler: () => { 
-          this.db.list("/orders").remove(this.order.orderKey); 
-          this.navCtrl.pop();
-        }},
-        { text: 'No', handler: () => { return;}}
+        {
+          text: 'Yes', handler: () => {
+            this.cdt.removeOrder(this.order.orderKey);
+            this.navCtrl.pop();
+          }
+        },
+        { text: 'No', handler: () => { return; } }
       ]
     });
     confirm.present();

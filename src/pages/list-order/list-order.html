@@ -78,7 +78,7 @@
     </ion-list>
   </div>
   <ion-list>
-    <ion-item-sliding *ngFor="let order of orders">
+    <ion-item-sliding *ngFor="let order of orders | async">
       <!-- <button ion-item *ngFor="let order of orderList| async" (click)="itemSelected(order)">
     {{ order.name }}
   </button> -->

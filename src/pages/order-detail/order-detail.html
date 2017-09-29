@@ -17,23 +17,31 @@
   <h2>{{ order.name }}</h2>
   <br />
   <ion-item>
+    <ion-label stacked>Thời gian nấu</ion-label>
+    <ion-select [(ngModel)]="order.campaign">
+      <ion-option [value]="camp.$key" *ngFor="let camp of campaigns">{{camp.name}}</ion-option>
+    </ion-select>
+  </ion-item>
+  <ion-item>
     <ion-label stacked>Số lượng</ion-label>
-    <ion-input type="number" [(ngModel)]="order.quantity" value={{order.quantity}} placeholder="Number Input with no label"></ion-input>
+    <ion-input type="number" [(ngModel)]="order.quantity" (keydown)="num.formatNo($event)" value={{order.quantity}} placeholder="Number Input with no label"></ion-input>
   </ion-item>
   <br />
-  
+  <ion-item>
+    <ion-label stacked>Số lượng kuyến mãi</ion-label>
+    <ion-input type="number" [(ngModel)]="order.bonusQuantity" (keydown)="num.formatNo($event)" placeholder="Number Input with no label"></ion-input>
+  </ion-item>
   <ion-list inset radio-group [(ngModel)]="order.sweetLevel">
-      <ion-item *ngFor="let slvl of sweetLvls">
-        <ion-label>{{slvl.name}}</ion-label>
-        <ion-radio value="{{slvl.lvl}}"></ion-radio>
-      </ion-item>
-    </ion-list>
-  <br />
+    <ion-item *ngFor="let slvl of sweetLvls">
+      <ion-label>{{slvl.name}}</ion-label>
+      <ion-radio value="{{slvl.lvl}}"></ion-radio>
+    </ion-item>
+  </ion-list>
   <ion-item>
     <ion-label stacked>Comment</ion-label>
     <ion-input [(ngModel)]="order.comment" type="text" value=""></ion-input>
   </ion-item>
-  <button ion-button color="secondary"  round (click)="finished()">Finished</button>
-  <button ion-button  round (click)="save()">Save</button>
+  <button ion-button color="secondary" round (click)="finished()">Finished</button>
+  <button ion-button round (click)="save()">Save</button>
   <button ion-button color="danger" round (click)="deleteOrder()">Delete</button>
 </ion-content>
