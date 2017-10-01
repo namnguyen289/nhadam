@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { AlertController,LoadingController } from 'ionic-angular';
-import {OrderDetailPage} from '../order-detail/order-detail';
-
-import {CommonDataProvider} from '../../providers/common-data/common-data';
-import { FirebaseListObservable } from 'angularfire2/database';
+import { OrderDetailPage } from '../order-detail/order-detail';
+import { NumberFunctionProvider} from '../../providers/number-function/number-function'
+import { CommonDataProvider} from '../../providers/common-data/common-data';
+// import { FirebaseListObservable } from 'angularfire2/database';
 
 
 /**
@@ -21,7 +21,7 @@ import { FirebaseListObservable } from 'angularfire2/database';
 })
 export class ListOrderPage {
   // orderList:any;
-  orders:FirebaseListObservable<any[]>;
+  orders:any[];
   sweetLvl1:number=1;
   sweetLvl2:number=2;
   sweetLvl3:number=3;
@@ -32,8 +32,11 @@ export class ListOrderPage {
     , public alertCtrl: AlertController
     , public loadingCtrl: LoadingController
     , public cdt:CommonDataProvider
+    , public num:NumberFunctionProvider
   ) {
-    this.orders = this.cdt.getNotFinishedOrder();
+    this.cdt.getNotFinishedOrder().subscribe(data=>{
+      this.orders = data;
+    });
   }
   minusQuantity(order){
     if(order.quantity>1){
@@ -43,6 +46,7 @@ export class ListOrderPage {
   }
   totalSweetByLvl(orders:any[],lvl:number){
     let total = 0;
+    if(!orders)return 0;
     orders.forEach(order=>{
       total+= (order.sweetLevel == lvl? (Number.parseInt(order.quantity)+Number.parseInt(order.bonusQuantity)):0);
     });

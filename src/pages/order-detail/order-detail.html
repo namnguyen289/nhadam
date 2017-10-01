@@ -41,7 +41,15 @@
     <ion-label stacked>Comment</ion-label>
     <ion-input [(ngModel)]="order.comment" type="text" value=""></ion-input>
   </ion-item>
-  <button ion-button color="secondary" round (click)="finished()">Finished</button>
-  <button ion-button round (click)="save()">Save</button>
-  <button ion-button color="danger" round (click)="deleteOrder()">Delete</button>
+  <ion-item>
+    <ion-label stacked>Money</ion-label>
+    <ion-input [(ngModel)]="order.money" type="text" value="{{num.numberWithCommas(order.quantity*cdt.getPrice())}}"></ion-input>
+  </ion-item>
+
+  <br />
+  <ion-buttons>
+    <button ion-button color="secondary" round (click)="finished()">Finished</button>
+    <button ion-button round (click)="save()">Save</button>
+    <button ion-button color="danger" round (click)="deleteOrder()">Delete</button>
+  </ion-buttons>
 </ion-content>

@@ -98,7 +98,7 @@ export class AddOrderPage {
       }, val => {
         this.user.key = val.key;
         this.cdt.addNewOrder(this.user, data => {
-          this.showAlert("Success", "Save successfully", () => { this.navCtrl.pop(); });
+          this.navCtrl.pop();
         });
       });
     } else {

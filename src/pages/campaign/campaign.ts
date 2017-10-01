@@ -40,6 +40,7 @@ export class CampaignPage {
           sweetLvl.quantity = this.totalSweetByLvl(data,sweetLvl.lvl);
           this.camp.totalSale += sweetLvl.quantity;
         });
+        this.camp.money.received = this.getTotalMoney(data);
       });
     } else {
       this.camp = this.defaulCampain();
@@ -50,6 +51,16 @@ export class CampaignPage {
     let total = 0;
     orders.forEach(order=>{
       total+= (order.sweetLevel == lvl? (Number.parseInt(order.quantity)+Number.parseInt(order.bonusQuantity)):0);
+    });
+    return total;
+  }
+
+  getTotalMoney(orders:any[]){
+    let total = 0;
+    orders.forEach(o=>{
+      if(o.done=='Y' && o.money){
+        total += Number.parseInt(o.money.replace(/\./g,''))/1000; 
+      }
     });
     return total;
   }

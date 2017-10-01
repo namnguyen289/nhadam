@@ -47,7 +47,7 @@ export class OrderDetailPage {
   }
 
   finished() {
-    this.cdt.updateOrder(this.order.orderKey, { done: 'Y' }
+    this.cdt.updateOrder(this.order.orderKey, { done: 'Y',money:this.order.money }
       , val => {
         this.cdt.updateCustomer(this.order.key, {
           orderedQuantity: this.order.orderedQuantity - this.order.quantity,

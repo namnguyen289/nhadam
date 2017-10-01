@@ -12,6 +12,7 @@ import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/databa
 export class CommonDataProvider {
 
   sweetLevels: any[];
+  prize:number=10000;
   orderList: FirebaseListObservable<any[]>;
   notFinishedOrders: FirebaseListObservable<any[]>;
   campaigns: FirebaseListObservable<any[]>;
@@ -20,6 +21,7 @@ export class CommonDataProvider {
 
   constructor(public db: AngularFireDatabase) {
     db.list("/sweetLevel", { query: { orderByChild: "lvl" } }).subscribe(val => { this.sweetLevels = val; });
+    db.object('/price').subscribe(val=>this.prize = val.$value);
     this.orderList = this.db.list("/orders");
     this.notFinishedOrders = db.list("/orders", { query: { orderByChild: 'done', equalTo: 'N' } });
     this.campaigns = db.list('/campaigns', { query: { orderByChild: 'done' } });
@@ -33,6 +35,10 @@ export class CommonDataProvider {
 
   getTextSweetLevel(lvl): string {
     return this.sweetLevels.filter(val => val.lvl == lvl)[0].name;
+  }
+
+  getPrice(){
+    return this.prize;
   }
 
   /* Order */

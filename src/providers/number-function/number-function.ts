@@ -31,4 +31,7 @@ export class NumberFunctionProvider {
   numberWithCommas(x) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
   }
+  parseInt(str:string){
+    return parseInt(str);
+  }
 }
