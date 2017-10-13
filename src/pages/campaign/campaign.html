@@ -71,7 +71,7 @@
             <p>{{order.comment}}</p>
           </div>
           <div class="rightg" item-end>
-            <Strong>{{order.quantity}}</Strong>
+            <Strong>{{numf.parseInt(order.bonusQuantity) + numf.parseInt(order.quantity)}}</Strong>
           </div>
         </ion-item>
       </ion-item-sliding>

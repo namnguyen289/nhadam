@@ -7,7 +7,7 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>list Order</ion-title>
+    <ion-title>list Order is not finished</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -18,11 +18,15 @@
     <ion-row>
       <ion-col>
         <span>Tổng</span>
-        <strong>{{totalSweetByLvl(orders,sweetLvl1) + totalSweetByLvl(orders,sweetLvl2) + totalSweetByLvl(orders,sweetLvl3)}}</strong>
+        <strong>{{getTotal()}}</strong>
       </ion-col>
     </ion-row>
     <ion-row>
-      <ion-col>
+        <ion-col *ngFor="let swLvl of sweetLvls">
+            <span>{{swLvl.name}}</span>
+            <strong>{{totalSweetByLvl(orders,swLvl.lvl)}}</strong>
+        </ion-col>
+      <!-- <ion-col>
         <span>Siêu ít ngọt</span>
         <strong>{{totalSweetByLvl(orders,sweetLvl1)}}</strong>
       </ion-col>
@@ -33,7 +37,7 @@
       <ion-col>
         <span>Ngọt</span>
         <strong>{{totalSweetByLvl(orders,sweetLvl3)}}</strong>
-      </ion-col>
+      </ion-col> -->
     </ion-row>
   </ion-grid>
   <ion-list>

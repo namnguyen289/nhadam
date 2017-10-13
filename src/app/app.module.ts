@@ -11,6 +11,7 @@ import {ListOrderPage} from '../pages/list-order/list-order';
 import {OrderDetailPage} from '../pages/order-detail/order-detail';
 import {ListCampaignPage} from '../pages/list-campaign/list-campaign';
 import {CampaignPage} from '../pages/campaign/campaign';
+import {OptionPage} from '../pages/option/option';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -39,7 +40,8 @@ export const firebaseConfig = {
     ListOrderPage,
     OrderDetailPage,
     ListCampaignPage,
-    CampaignPage
+    CampaignPage,
+    OptionPage
   ],
   imports: [
     BrowserModule,
@@ -58,7 +60,8 @@ export const firebaseConfig = {
     ListOrderPage,
     OrderDetailPage,
     ListCampaignPage,
-    CampaignPage
+    CampaignPage,
+    OptionPage
   ],
   providers: [
     StatusBar,

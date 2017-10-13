@@ -15,9 +15,11 @@ export class NumberFunctionProvider {
 
   formatNo(event) {
     let val = event.target.value;
-    val = val ? Number.parseInt(val) : '0';
-    val = this.removezero(val.toString())
-    event.target.value = val;
+    val = val ? parseInt(val) : '0';
+    val = this.removezero(val.toString());
+    if(event.keyCode >= 48 && event.keyCode <= 57 && val!=="0")
+      event.target.value = val;
+    return val;
   }
 
   removezero(number: string) {
@@ -32,6 +34,7 @@ export class NumberFunctionProvider {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
   }
   parseInt(str:string){
+    if(!str || str==="") return 0;
     return parseInt(str);
   }
 }

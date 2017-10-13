@@ -65,6 +65,9 @@ export class AddOrderPage {
     });
   }
 
+  checkpromotion(event){
+    this.user.bonusQuantity = Math.floor((this.num.parseInt(this.num.formatNo(event)+event.key) + this.num.parseInt(this.user.orderedQuantity)*-1)/this.cdt.getBottle2promote());
+  }
 
   showDetail() {
     this.detailFlag = !this.detailFlag;
@@ -89,6 +92,11 @@ export class AddOrderPage {
     this.user.sweetLevelName = slvl.name;
   } */
   save() {
+    if(!this.user.quantity || this.user.quantity.trim() ==="")
+    {
+      this.showAlert("Error", "Please input quantity", () => {});
+      return;
+    }
     this.user.createTime = (new Date()).toString();
     if (!this.user.key) {
       this.cdt.addNewCustomer({

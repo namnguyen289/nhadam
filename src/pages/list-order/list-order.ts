@@ -22,9 +22,7 @@ import { CommonDataProvider} from '../../providers/common-data/common-data';
 export class ListOrderPage {
   // orderList:any;
   orders:any[];
-  sweetLvl1:number=1;
-  sweetLvl2:number=2;
-  sweetLvl3:number=3;
+  sweetLvls:any[];
 
   constructor(public navCtrl: NavController
     , public navParams: NavParams
@@ -37,12 +35,22 @@ export class ListOrderPage {
     this.cdt.getNotFinishedOrder().subscribe(data=>{
       this.orders = data;
     });
+    this.sweetLvls =  this.cdt.getSweetLevels();
   }
   minusQuantity(order){
     if(order.quantity>1){
       order.quantity -= 1;
     }
+    order.bonusQuantity = Math.floor((this.num.parseInt(order.quantity) + this.num.parseInt(order.orderedQuantity)*-1)/this.cdt.getBottle2promote());
+    
     this.cdt.updateOrder(order.$key,order,()=>{});
+  }
+  getTotal(){
+    let total = 0;
+    this.sweetLvls.forEach(lvl=>{
+      total += this.totalSweetByLvl(this.orders,lvl.lvl)
+    });
+    return total;
   }
   totalSweetByLvl(orders:any[],lvl:number){
     let total = 0;
@@ -55,6 +63,7 @@ export class ListOrderPage {
   addQuantity(order){
     order.quantity = Number.parseInt(order.quantity);
     order.quantity +=1;
+    order.bonusQuantity = Math.floor((this.num.parseInt(order.quantity) + this.num.parseInt(order.orderedQuantity)*-1)/this.cdt.getBottle2promote());
     this.cdt.updateOrder(order.$key,order,()=>{});
   }
   deleteOrder(order){

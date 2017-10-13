@@ -27,7 +27,7 @@
     </ion-item>
     <ion-item>
       <ion-label stacked>Số chai cần để khuyến mãi:</ion-label>
-      <ion-input type="number" value="{{10 - bonusOrderedQuantity}}" disabled placeholder="Number Input with no label"></ion-input>
+      <ion-input type="number" value="{{cdt.getBottle2promote() - bonusOrderedQuantity}}" disabled placeholder="Number Input with no label"></ion-input>
     </ion-item>
   </div>
   <br />
@@ -39,7 +39,7 @@
   </ion-item>
   <ion-item>
     <ion-label stacked>Số lượng</ion-label>
-    <ion-input type="number" [(ngModel)]="user.quantity" (keydown)="num.formatNo($event)" placeholder="Number Input with no label"></ion-input>
+    <ion-input type="number" [(ngModel)]="user.quantity" (keydown)="checkpromotion($event)" placeholder="Number Input with no label"></ion-input>
   </ion-item>
   <br />
   <ion-item>
