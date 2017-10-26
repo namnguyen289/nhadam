@@ -1,33 +1,123 @@
 {
-  "customers" : {
-    "-Ku3XbagwgNvb57AIfLl" : {
-      "name" : "Anh Nguyễn",
-      "orderTime" : -10,
-      "orderedQuantiry" : -60
+  "campaigns" : {
+    "-KucrVlDN4nkO_PYmZRy" : {
+      "cookDate" : "2017-09-30T09:14:32.456Z",
+      "done" : true,
+      "money" : {
+        "capital" : {
+          "aloe" : "90",
+          "bottle" : 0,
+          "other" : "130",
+          "sugar" : "90",
+          "total" : 310
+        },
+        "income" : 150,
+        "received" : 460
+      },
+      "name" : "Saturday, 30 Sep 2017",
+      "sweetLvls" : [ {
+        "lvl" : 1,
+        "name" : "Lạt",
+        "quantity" : 14
+      }, {
+        "lvl" : 2,
+        "name" : "Vừa",
+        "quantity" : 16
+      }, {
+        "lvl" : 3,
+        "name" : "Ngọt",
+        "quantity" : 18
+      } ],
+      "totalCooked" : "113",
+      "totalSale" : 48
     },
+    "-Kvc14daZULVQOCDcuc8" : {
+      "cookDate" : "2017-10-09T15:36:40.351Z",
+      "done" : true,
+      "money" : {
+        "capital" : {
+          "aloe" : "0100",
+          "bottle" : "120",
+          "other" : "30",
+          "sugar" : "80",
+          "total" : 330
+        },
+        "income" : -330,
+        "received" : 0
+      },
+      "name" : "Monday, 9 Oct 2017",
+      "sweetLvls" : [ {
+        "lvl" : 1,
+        "name" : "Lạt",
+        "quantity" : 3
+      }, {
+        "lvl" : 2,
+        "name" : "Vừa",
+        "quantity" : 31
+      }, {
+        "lvl" : 3,
+        "name" : "Ngọt",
+        "quantity" : 8
+      } ],
+      "totalCooked" : "117",
+      "totalSale" : 42
+    },
+    "-Kwo4K0-mJ_8ww_oDk2S" : {
+      "cookDate" : "2017-10-23T10:01:51.395Z",
+      "done" : false,
+      "money" : {
+        "capital" : {
+          "aloe" : 0,
+          "bottle" : 0,
+          "other" : 0,
+          "sugar" : 0,
+          "total" : 0
+        },
+        "income" : 60,
+        "received" : 60
+      },
+      "name" : "Monday, 23 Oct 2017",
+      "sweetLvls" : [ {
+        "lvl" : 1,
+        "name" : "Lạt",
+        "quantity" : 0
+      }, {
+        "lvl" : 2,
+        "name" : "Vừa",
+        "quantity" : 2
+      }, {
+        "lvl" : 3,
+        "name" : "Ngọt",
+        "quantity" : 4
+      } ],
+      "totalCooked" : "113",
+      "totalSale" : 6
+    }
+  },
+  "customers" : {
     "-Ku3Xbai4q5SFQfvd8kF" : {
       "name" : "Cậu Cải",
       "orderTime" : -1,
       "orderedQuantiry" : -6
     },
     "-Ku3Xbai4q5SFQfvd8kG" : {
+      "bonusOrderedQuantity" : 0,
       "name" : "Châu Trương",
-      "orderTime" : -1,
-      "orderedQuantiry" : -6
+      "orderTime" : -5,
+      "orderedQuantity" : -28,
+      "updateTime" : "Thu Sep 28 2017 23:40:23 GMT+0700 (+07)"
     },
     "-Ku3Xbaj_BXYIWO_6xSl" : {
+      "bonusOrderedQuantity" : -1,
       "name" : "Chồng mập",
-      "orderTime" : -11
+      "orderTime" : -12,
+      "orderedQuantity" : -1,
+      "updateTime" : "Sun Oct 01 2017 16:56:18 GMT+0700 (+07)"
     },
     "-Ku3Xbaj_BXYIWO_6xSm" : {
       "name" : "Cường Lê",
       "orderTime" : -1,
-      "orderedQuantiry" : -6
-    },
-    "-Ku3Xbaj_BXYIWO_6xSn" : {
-      "name" : "Cường Phan",
-      "orderTime" : -1,
-      "orderedQuantiry" : -6
+      "orderedQuantiry" : 0
     },
     "-Ku3Xbaj_BXYIWO_6xSo" : {
       "name" : "Dì 7",
@@ -42,50 +132,43 @@
     "-Ku3Xbaj_BXYIWO_6xSq" : {
       "name" : "Dũng Đào SD",
       "orderTime" : -1,
-      "orderedQuantiry" : -6
+      "orderedQuantiry" : -4
     },
     "-Ku3Xbaj_BXYIWO_6xSr" : {
       "name" : "Dung Đỗ",
       "orderTime" : -1,
-      "orderedQuantiry" : -6
+      "orderedQuantiry" : 0
     },
     "-Ku3Xbaj_BXYIWO_6xSs" : {
       "name" : "Dũng Nguyễn",
       "orderTime" : -1,
-      "orderedQuantiry" : -6
+      "orderedQuantiry" : 0
     },
     "-Ku3XbakHc_cnwrrdlsX" : {
       "name" : "Đoàn Nguyễn",
       "orderTime" : -1,
       "orderedQuantiry" : -6
     },
-    "-Ku3XbakHc_cnwrrdlsY" : {
-      "name" : "Đức Nguyễn",
-      "orderTime" : -1,
-      "orderedQuantiry" : -6
-    },
     "-Ku3XbakHc_cnwrrdlsZ" : {
       "name" : "Giang Nguyễn",
       "orderTime" : -1,
-      "orderedQuantiry" : -6
+      "orderedQuantiry" : 0
     },
     "-Ku3XbakHc_cnwrrdls_" : {
       "name" : "Giang Phạm",
       "orderTime" : -1,
-      "orderedQuantiry" : -6
+      "orderedQuantiry" : -8
     },
     "-Ku3XbakHc_cnwrrdlsa" : {
+      "bonusOrderedQuantity" : -5,
       "name" : "Giang Võ",
-      "orderTime" : -1,
-      "orderedQuantiry" : -6
+      "orderTime" : -2,
+      "orderedQuantiry" : -6,
+      "orderedQuantity" : -5,
+      "updateTime" : "Wed Oct 25 2017 23:26:31 GMT+0700 (+07)"
     },
     "-Ku3XbakHc_cnwrrdlsb" : {
       "name" : "Hải Vũ",
-      "orderTime" : -1,
-      "orderedQuantiry" : -6
-    },
-    "-Ku3XbakHc_cnwrrdlsc" : {
-      "name" : "Hạnh SD",
       "orderTime" : -1,
       "orderedQuantiry" : -6
     },
@@ -94,15 +177,10 @@
       "orderTime" : -1,
       "orderedQuantiry" : -6
     },
-    "-Ku3Xbal77JGYTCnyGYE" : {
-      "name" : "Hằng Hồ",
-      "orderTime" : -1,
-      "orderedQuantiry" : -6
-    },
     "-Ku3Xbal77JGYTCnyGYF" : {
       "name" : "Hòa Nguyễn",
       "orderTime" : -1,
-      "orderedQuantiry" : -6
+      "orderedQuantiry" : -9
     },
     "-Ku3Xbal77JGYTCnyGYG" : {
       "name" : "Hoàng Trần",
@@ -115,9 +193,11 @@
       "orderedQuantiry" : -6
     },
     "-Ku3Xbal77JGYTCnyGYI" : {
+      "bonusOrderedQuantity" : -2,
       "name" : "Khang Đống",
-      "orderTime" : -1,
-      "orderedQuantiry" : -6
+      "orderTime" : -2,
+      "orderedQuantity" : -9,
+      "updateTime" : "Wed Oct 04 2017 22:23:40 GMT+0700 (+07)"
     },
     "-Ku3Xbal77JGYTCnyGYJ" : {
       "name" : "Khiêm",
@@ -130,34 +210,31 @@
       "orderedQuantiry" : -6
     },
     "-Ku3Xbal77JGYTCnyGYL" : {
+      "bonusOrderedQuantity" : -9,
       "name" : "Lâm Nguyễn",
-      "orderTime" : -9,
-      "orderedQuantiry" : -6
+      "orderTime" : -10,
+      "orderedQuantity" : -4,
+      "updateTime" : "Wed Oct 11 2017 21:45:50 GMT+0700 (+07)"
     },
     "-Ku3XbamR814LHvomOk2" : {
       "name" : "Lợi Đỗ",
       "orderTime" : -1,
       "orderedQuantiry" : -6
     },
-    "-Ku3XbamR814LHvomOk3" : {
-      "name" : "Lực Dương",
-      "orderTime" : -15,
-      "orderedQuantiry" : -6
-    },
     "-Ku3XbamR814LHvomOk4" : {
       "name" : "Minh Đỗ",
       "orderTime" : -1,
-      "orderedQuantiry" : -6
+      "orderedQuantiry" : -1
     },
     "-Ku3XbamR814LHvomOk5" : {
       "name" : "Nghĩa Nguyễn",
       "orderTime" : -8,
-      "orderedQuantiry" : -6
+      "orderedQuantiry" : -7
     },
     "-Ku3XbamR814LHvomOk6" : {
       "name" : "Ngọc Anh",
       "orderTime" : -1,
-      "orderedQuantiry" : -6
+      "orderedQuantiry" : -5
     },
     "-Ku3XbamR814LHvomOk7" : {
       "name" : "Nhà chú",
@@ -169,30 +246,20 @@
       "orderTime" : -1,
       "orderedQuantiry" : -6
     },
-    "-Ku3XbamR814LHvomOk9" : {
-      "name" : "Niệm Huỳnh",
-      "orderTime" : -1,
-      "orderedQuantiry" : -6
-    },
     "-Ku3XbamR814LHvomOkA" : {
       "name" : "Oanh Nguyễn",
       "orderTime" : -1,
-      "orderedQuantiry" : -6
-    },
-    "-Ku3XbanbRQ14yKK-dKl" : {
-      "name" : "Phú Lâm",
-      "orderTime" : -1,
-      "orderedQuantiry" : -6
+      "orderedQuantiry" : -7
     },
     "-Ku3XbanbRQ14yKK-dKm" : {
       "name" : "Phúc Bùi",
       "orderTime" : -1,
-      "orderedQuantiry" : -6
+      "orderedQuantiry" : -3
     },
     "-Ku3XbanbRQ14yKK-dKn" : {
       "name" : "Phượng Nguyễn",
       "orderTime" : -1,
-      "orderedQuantiry" : -6
+      "orderedQuantiry" : -3
     },
     "-Ku3XbanbRQ14yKK-dKo" : {
       "name" : "Sơn Lê",
@@ -202,47 +269,32 @@
     "-Ku3XbanbRQ14yKK-dKp" : {
       "name" : "Thành Phùng",
       "orderTime" : -1,
-      "orderedQuantiry" : -6
-    },
-    "-Ku3XbanbRQ14yKK-dKq" : {
-      "name" : "Thảo",
-      "orderTime" : -1,
-      "orderedQuantiry" : -6
+      "orderedQuantiry" : -7
     },
     "-Ku3XbanbRQ14yKK-dKr" : {
-      "name" : "Thọ",
+      "name" : "Thọ Softek",
       "orderTime" : -1,
-      "orderedQuantiry" : -6
+      "orderedQuantiry" : -8
     },
     "-Ku3XbanbRQ14yKK-dKs" : {
       "name" : "Thoa Điền",
       "orderTime" : -1,
-      "orderedQuantiry" : -6
-    },
-    "-Ku3Xbaok1yLAYPaoRFw" : {
-      "name" : "Tiến Lê",
-      "orderTime" : -1,
-      "orderedQuantiry" : -6
+      "orderedQuantiry" : -2
     },
     "-Ku3Xbaok1yLAYPaoRFx" : {
       "name" : "Tiên Nguyễn",
       "orderTime" : -1,
-      "orderedQuantiry" : -6
+      "orderedQuantiry" : -7
     },
     "-Ku3Xbaok1yLAYPaoRFy" : {
       "name" : "Trang Trương",
       "orderTime" : -1,
-      "orderedQuantiry" : -6
+      "orderedQuantiry" : -1
     },
     "-Ku3Xbaok1yLAYPaoRFz" : {
       "name" : "Tuấn Châu",
       "orderTime" : -1,
-      "orderedQuantiry" : -6
-    },
-    "-Ku3Xbaok1yLAYPaoRG-" : {
-      "name" : "Tuyền",
-      "orderTime" : -1,
-      "orderedQuantiry" : -6
+      "orderedQuantiry" : 0
     },
     "-Ku3Xbaok1yLAYPaoRG0" : {
       "name" : "Tuyền Trương",
@@ -259,20 +311,748 @@
       "orderTime" : -1,
       "orderedQuantiry" : -6
     },
-    "-Ku3Xbaok1yLAYPaoRG3" : {
-      "name" : "Long Lý",
-      "orderTime" : -1,
-      "orderedQuantiry" : -6
-    },
     "-Ku3XbapbBaMR-XfVCeD" : {
       "name" : "Diễm Huỳnh",
       "orderTime" : -1,
-      "orderedQuantiry" : -6
+      "orderedQuantiry" : -8
     },
     "-Ku3XbapbBaMR-XfVCeE" : {
       "name" : "Ngọc Nguyễn",
       "orderTime" : -1,
       "orderedQuantiry" : -6
+    },
+    "-KuPcoxYEAi25kRjbtQi" : {
+      "name" : "Lực Dương",
+      "orderTime" : 0,
+      "orderedQuantiry" : 0
+    },
+    "-KvBVCXBrAhoDa0F5dFB" : {
+      "bonusOrderedQuantity" : -2,
+      "name" : "Hằng Hồ",
+      "orderTime" : -2,
+      "orderedQuantity" : -8,
+      "updateTime" : "Wed Oct 04 2017 22:23:32 GMT+0700 (+07)"
+    },
+    "-KvBVgqwdl7LKcRGWO-3" : {
+      "bonusOrderedQuantity" : -2,
+      "name" : "Minh Phạm",
+      "orderTime" : -1,
+      "orderedQuantity" : -2,
+      "updateTime" : "Wed Oct 04 2017 22:23:50 GMT+0700 (+07)"
+    },
+    "-KvBVy0JulQEF_zncQW3" : {
+      "bonusOrderedQuantity" : -4,
+      "name" : "Đức Nguyễn",
+      "orderTime" : -3,
+      "orderedQuantity" : -9,
+      "updateTime" : "Thu Oct 19 2017 17:04:38 GMT+0700 (ICT)"
+    },
+    "-KvBW8Autue2i4KqTlfi" : {
+      "bonusOrderedQuantity" : -5,
+      "name" : "Hà Nguyễn",
+      "orderTime" : -1,
+      "orderedQuantity" : -5,
+      "updateTime" : "Wed Oct 04 2017 22:24:10 GMT+0700 (+07)"
+    },
+    "-KvBuA3cCQYhluErT6u6" : {
+      "bonusOrderedQuantity" : -2,
+      "name" : "Thảo",
+      "orderTime" : -2,
+      "orderedQuantity" : 0,
+      "updateTime" : "Wed Oct 04 2017 22:24:22 GMT+0700 (+07)"
+    },
+    "-KvBueTnJnokIOuX5wyd" : {
+      "name" : "Hạnh SD",
+      "orderTime" : 0,
+      "orderedQuantity" : 0
+    },
+    "-KvC4uOwWRhyS4iAVd6s" : {
+      "bonusOrderedQuantity" : 0,
+      "name" : "Phú Lâm",
+      "orderTime" : -2,
+      "orderedQuantity" : -7,
+      "updateTime" : "Wed Oct 04 2017 22:24:17 GMT+0700 (+07)"
+    },
+    "-KvkUBM_1jUjvZo46cdS" : {
+      "bonusOrderedQuantity" : -5,
+      "name" : "Hạnh Lê",
+      "orderTime" : -1,
+      "orderedQuantity" : -5,
+      "updateTime" : "Thu Oct 19 2017 17:04:23 GMT+0700 (ICT)"
+    },
+    "-KvkUJL1OT1JpMnRRvl8" : {
+      "bonusOrderedQuantity" : -7,
+      "name" : "Tú Trần",
+      "orderTime" : -2,
+      "orderedQuantity" : -8,
+      "updateTime" : "Thu Oct 19 2017 17:04:28 GMT+0700 (ICT)"
+    },
+    "-KvkVKXtRUf2OrWMSosy" : {
+      "bonusOrderedQuantity" : -10,
+      "name" : "Long Lý",
+      "orderTime" : -3,
+      "orderedQuantity" : -5,
+      "updateTime" : "Thu Oct 19 2017 17:04:42 GMT+0700 (ICT)"
+    },
+    "-KvkVfREaqBRKyZnxcKO" : {
+      "bonusOrderedQuantity" : -2,
+      "name" : "Niệm Huỳnh",
+      "orderTime" : -2,
+      "orderedQuantity" : -4,
+      "updateTime" : "Thu Oct 19 2017 17:04:53 GMT+0700 (ICT)"
+    },
+    "-KvkVm8ZV-s1nLf0ZPWq" : {
+      "bonusOrderedQuantity" : -4,
+      "name" : "My Lý",
+      "orderTime" : -2,
+      "orderedQuantity" : -6,
+      "updateTime" : "Thu Oct 19 2017 17:04:57 GMT+0700 (ICT)"
+    },
+    "-KvknL1eppoUol-7XdAL" : {
+      "bonusOrderedQuantity" : -3,
+      "name" : "Anh Nguyễn",
+      "orderTime" : -13,
+      "orderedQuantity" : 0,
+      "updateTime" : "Thu Oct 19 2017 17:05:00 GMT+0700 (ICT)"
+    },
+    "-Kwo5TTzVR8Zd2OF_Gdi" : {
+      "bonusOrderedQuantity" : -2,
+      "name" : "Cường Phan",
+      "orderTime" : -1,
+      "orderedQuantity" : 0,
+      "updateTime" : "Wed Oct 25 2017 22:59:48 GMT+0700 (+07)"
+    },
+    "-Kwo5df0hr1x2c12fT0U" : {
+      "bonusOrderedQuantity" : -4,
+      "name" : "Tiến Lê",
+      "orderTime" : -1,
+      "orderedQuantity" : -5,
+      "updateTime" : "Wed Oct 25 2017 23:04:29 GMT+0700 (+07)"
+    },
+    "-KxJK8LdYRLJCFEA2hgf" : {
+      "bonusOrderedQuantity" : -5,
+      "name" : "Đạt Nguyễn",
+      "orderTime" : -1,
+      "orderedQuantity" : -5,
+      "updateTime" : "Wed Oct 25 2017 23:19:33 GMT+0700 (+07)"
+    },
+    "-KxJKvovDpTUdirMcHIR" : {
+      "bonusOrderedQuantity" : -3,
+      "name" : "Nam Nguyễn Ngọc",
+      "orderTime" : -1,
+      "orderedQuantity" : -3,
+      "updateTime" : "Wed Oct 25 2017 23:26:16 GMT+0700 (+07)"
+    },
+    "-KxJL7VF_cpohB0eH_JX" : {
+      "bonusOrderedQuantity" : -4,
+      "name" : "Phúc Nguyễn",
+      "orderTime" : -1,
+      "orderedQuantity" : -4,
+      "updateTime" : "Wed Oct 25 2017 23:26:20 GMT+0700 (+07)"
+    },
+    "-KxJLZhrMPLI_jr1YDD8" : {
+      "bonusOrderedQuantity" : -2,
+      "name" : "Tiên Trần",
+      "orderTime" : -1,
+      "orderedQuantity" : -2,
+      "updateTime" : "Wed Oct 25 2017 23:26:24 GMT+0700 (+07)"
+    },
+    "-KxJLcFGIIzeO1yxSEcz" : {
+      "bonusOrderedQuantity" : -2,
+      "name" : "Cô Lao Công",
+      "orderTime" : -1,
+      "orderedQuantity" : -2,
+      "updateTime" : "Wed Oct 25 2017 23:26:28 GMT+0700 (+07)"
+    }
+  },
+  "options" : {
+    "kind" : {
+      "nhadam" : "Nha Đam",
+      "nuocsam" : "Nước Sâm"
+    },
+    "sweetLevel" : {
+      "itngot" : {
+        "lvl" : 2,
+        "name" : "Vừa"
+      },
+      "ngot" : {
+        "lvl" : 3,
+        "name" : "Ngọt"
+      },
+      "sieuitngot" : {
+        "lvl" : 1,
+        "name" : "Lạt"
+      }
+    },
+    "num2promote" : 10,
+    "price" : 10000
+  },
+  "orders" : {
+    "-KvBUzh84cxn2PtVnrKu" : {
+      "bonusOrderedQuantity" : 0,
+      "bonusQuantity" : 0,
+      "campaign" : "-KucrVlDN4nkO_PYmZRy",
+      "createTime" : "Fri Sep 29 2017 14:18:13 GMT+0700 (+07)",
+      "done" : "Y",
+      "key" : "-Ku3XbagwgNvb57AIfLl",
+      "money" : "10.000",
+      "name" : "Anh Nguyễn",
+      "orderTime" : -11,
+      "orderedQuantiry" : -61,
+      "orderedQuantity" : 0,
+      "quantity" : 1,
+      "sweetLevel" : "3"
+    },
+    "-KvBV5gwnIGajcTTANC1" : {
+      "bonusOrderedQuantity" : 0,
+      "bonusQuantity" : "1",
+      "campaign" : "-KucrVlDN4nkO_PYmZRy",
+      "createTime" : "Fri Sep 29 2017 14:18:41 GMT+0700 (+07)",
+      "done" : "Y",
+      "key" : "-Ku3XbagwgNvb57AIfLl",
+      "money" : "90.000",
+      "name" : "Anh Nguyễn",
+      "orderKey" : "-KvBV5gwnIGajcTTANC1",
+      "orderTime" : -11,
+      "orderedQuantiry" : -61,
+      "orderedQuantity" : 0,
+      "quantity" : "9",
+      "sweetLevel" : "1"
+    },
+    "-KvBVC_eE9rLadO2C9OQ" : {
+      "bonusOrderedQuantity" : 0,
+      "bonusQuantity" : 0,
+      "campaign" : "-KucrVlDN4nkO_PYmZRy",
+      "createTime" : "Fri Sep 29 2017 14:19:09 GMT+0700 (+07)",
+      "done" : "Y",
+      "key" : "-KvBVCXBrAhoDa0F5dFB",
+      "money" : "20.000",
+      "name" : "Hằng Hồ",
+      "orderTime" : -1,
+      "orderedQuantiry" : -6,
+      "orderedQuantity" : 0,
+      "quantity" : "2",
+      "sweetLevel" : 2
+    },
+    "-KvBVHzebq6JKtmJMBbe" : {
+      "bonusOrderedQuantity" : 0,
+      "bonusQuantity" : 0,
+      "campaign" : "-KucrVlDN4nkO_PYmZRy",
+      "createTime" : "Fri Sep 29 2017 14:19:31 GMT+0700 (+07)",
+      "done" : "Y",
+      "key" : "-KvBVHwCcmw4FoNsoZmw",
+      "money" : "20.000",
+      "name" : "Tú Trần",
+      "orderTime" : 0,
+      "orderedQuantity" : 0,
+      "quantity" : "2",
+      "sweetLevel" : "3"
+    },
+    "-KvBVNbHnUnbbFW1PLvq" : {
+      "bonusOrderedQuantity" : 0,
+      "bonusQuantity" : 0,
+      "campaign" : "-KucrVlDN4nkO_PYmZRy",
+      "createTime" : "Fri Sep 29 2017 14:19:55 GMT+0700 (+07)",
+      "done" : "Y",
+      "key" : "-Ku3Xbal77JGYTCnyGYI",
+      "money" : "20.000",
+      "name" : "Khang Đống",
+      "orderTime" : -1,
+      "orderedQuantiry" : -6,
+      "orderedQuantity" : 0,
+      "quantity" : "2",
+      "sweetLevel" : 2
+    },
+    "-KvBVW8OLLdb3cBrubFE" : {
+      "bonusOrderedQuantity" : 0,
+      "bonusQuantity" : 0,
+      "campaign" : "-KucrVlDN4nkO_PYmZRy",
+      "createTime" : "Fri Sep 29 2017 14:20:29 GMT+0700 (+07)",
+      "done" : "Y",
+      "key" : "-KvBVW4qN1rsK9knOdaL",
+      "money" : "20.000",
+      "name" : "My Lý",
+      "orderTime" : 0,
+      "orderedQuantity" : 0,
+      "quantity" : "2",
+      "sweetLevel" : 2
+    },
+    "-KvBVaMZXKNRAATmQ0PT" : {
+      "bonusOrderedQuantity" : 0,
+      "bonusQuantity" : 0,
+      "campaign" : "-KucrVlDN4nkO_PYmZRy",
+      "createTime" : "Fri Sep 29 2017 14:20:51 GMT+0700 (+07)",
+      "done" : "Y",
+      "key" : "-KvBVaJ8tw-lqW4Uekhd",
+      "money" : "20.000",
+      "name" : "Oanh Nguyễn",
+      "orderTime" : -1,
+      "orderedQuantiry" : -6,
+      "orderedQuantity" : 0,
+      "quantity" : "2",
+      "sweetLevel" : 2
+    },
+    "-KvBVguKd_SW7wKRmph9" : {
+      "bonusOrderedQuantity" : 0,
+      "bonusQuantity" : 0,
+      "campaign" : "-KucrVlDN4nkO_PYmZRy",
+      "createTime" : "Fri Sep 29 2017 14:21:18 GMT+0700 (+07)",
+      "done" : "Y",
+      "key" : "-KvBVgqwdl7LKcRGWO-3",
+      "money" : "20.000",
+      "name" : "Minh Phạm",
+      "orderTime" : 0,
+      "orderedQuantity" : 0,
+      "quantity" : "2",
+      "sweetLevel" : "3"
+    },
+    "-KvBVltiFytb4oasz7QF" : {
+      "bonusOrderedQuantity" : 0,
+      "bonusQuantity" : 0,
+      "campaign" : "-KucrVlDN4nkO_PYmZRy",
+      "createTime" : "Fri Sep 29 2017 14:21:38 GMT+0700 (+07)",
+      "done" : "Y",
+      "key" : "-KvBVlp8Gm2pCoICoHnb",
+      "money" : "50.000",
+      "name" : "Long Lý",
+      "orderTime" : -1,
+      "orderedQuantiry" : -6,
+      "orderedQuantity" : 0,
+      "quantity" : "5",
+      "sweetLevel" : 2
+    },
+    "-KvBVqGkfwH299hA_du8" : {
+      "bonusOrderedQuantity" : 0,
+      "bonusQuantity" : 0,
+      "campaign" : "-KucrVlDN4nkO_PYmZRy",
+      "createTime" : "Fri Sep 29 2017 14:21:56 GMT+0700 (+07)",
+      "done" : "Y",
+      "key" : "-KvBVqCNDqMO7G0NEMzd",
+      "money" : "40.000",
+      "name" : "Tiến Lê",
+      "orderTime" : -1,
+      "orderedQuantiry" : -6,
+      "orderedQuantity" : 0,
+      "quantity" : "4",
+      "sweetLevel" : "3"
+    },
+    "-KvBVy3oJKFfAE2Tsies" : {
+      "bonusOrderedQuantity" : 0,
+      "bonusQuantity" : 0,
+      "campaign" : "-KucrVlDN4nkO_PYmZRy",
+      "createTime" : "Fri Sep 29 2017 14:22:28 GMT+0700 (+07)",
+      "done" : "Y",
+      "key" : "-KvBVy0JulQEF_zncQW3",
+      "money" : "20.000",
+      "name" : "Đức Nguyễn",
+      "orderTime" : -1,
+      "orderedQuantiry" : -6,
+      "orderedQuantity" : 0,
+      "quantity" : "2",
+      "sweetLevel" : "3"
+    },
+    "-KvBW8EUOAFFAdfDWqmx" : {
+      "bonusOrderedQuantity" : 0,
+      "bonusQuantity" : 0,
+      "campaign" : "-KucrVlDN4nkO_PYmZRy",
+      "createTime" : "Fri Sep 29 2017 14:23:14 GMT+0700 (+07)",
+      "done" : "Y",
+      "key" : "-KvBW8Autue2i4KqTlfi",
+      "money" : "50.000",
+      "name" : "Thái Hà",
+      "orderTime" : 0,
+      "orderedQuantity" : 0,
+      "quantity" : "5",
+      "sweetLevel" : "3"
+    },
+    "-KvBWVfBT9ar6y_EmJbu" : {
+      "bonusOrderedQuantity" : 0,
+      "bonusQuantity" : 0,
+      "campaign" : "-KucrVlDN4nkO_PYmZRy",
+      "createTime" : "Fri Sep 29 2017 14:24:50 GMT+0700 (+07)",
+      "done" : "Y",
+      "key" : "-Ku3Xbaj_BXYIWO_6xSn",
+      "money" : "20.000",
+      "name" : "Cường Phan",
+      "orderTime" : -1,
+      "orderedQuantiry" : -6,
+      "orderedQuantity" : 0,
+      "quantity" : "2",
+      "sweetLevel" : 2
+    },
+    "-KvBuA7d6j1SOFOcVmVN" : {
+      "bonusOrderedQuantity" : 0,
+      "bonusQuantity" : 0,
+      "campaign" : "-KucrVlDN4nkO_PYmZRy",
+      "comment" : "Ít hạt",
+      "createTime" : "Fri Sep 29 2017 16:12:35 GMT+0700 (+07)",
+      "done" : "Y",
+      "key" : "-KvBuA3cCQYhluErT6u6",
+      "money" : "20.000",
+      "name" : "Thảo",
+      "orderTime" : -1,
+      "orderedQuantiry" : -6,
+      "orderedQuantity" : 0,
+      "quantity" : 2,
+      "sweetLevel" : "3"
+    },
+    "-KvC4uTqoFfNLy8rxqYY" : {
+      "bonusOrderedQuantity" : 0,
+      "bonusQuantity" : "01",
+      "campaign" : "-KucrVlDN4nkO_PYmZRy",
+      "createTime" : "Fri Sep 29 2017 17:03:53 GMT+0700 (+07)",
+      "done" : "Y",
+      "key" : "-KvC4uOwWRhyS4iAVd6s",
+      "money" : "30.000",
+      "name" : "Phú Lâm",
+      "orderTime" : -1,
+      "orderedQuantiry" : -6,
+      "orderedQuantity" : 0,
+      "quantity" : 3,
+      "sweetLevel" : "1"
+    },
+    "-KvMMHhbfbkWIu8h8BsX" : {
+      "bonusOrderedQuantity" : 0,
+      "bonusQuantity" : 0,
+      "campaign" : "-KucrVlDN4nkO_PYmZRy",
+      "createTime" : "Sun Oct 01 2017 16:56:01 GMT+0700 (+07)",
+      "done" : "Y",
+      "key" : "-Ku3Xbaj_BXYIWO_6xSl",
+      "money" : "10.000",
+      "name" : "Chồng mập",
+      "orderTime" : -11,
+      "orderedQuantity" : 0,
+      "quantity" : 1,
+      "sweetLevel" : 2
+    },
+    "-KvkUBQi-e8oh-Rltt_T" : {
+      "bonusOrderedQuantity" : 0,
+      "bonusQuantity" : 0,
+      "campaign" : "-Kvc14daZULVQOCDcuc8",
+      "createTime" : "Fri Oct 06 2017 14:01:00 GMT+0700 (ICT)",
+      "done" : "Y",
+      "key" : "-KvkUBM_1jUjvZo46cdS",
+      "money" : "50.000",
+      "name" : "Hạnh Lê",
+      "orderTime" : 0,
+      "orderedQuantity" : 0,
+      "quantity" : "5",
+      "sweetLevel" : 2
+    },
+    "-KvkUJOibx_nks5lY6qI" : {
+      "bonusOrderedQuantity" : -2,
+      "bonusQuantity" : 0,
+      "campaign" : "-Kvc14daZULVQOCDcuc8",
+      "createTime" : "Fri Oct 06 2017 14:01:33 GMT+0700 (ICT)",
+      "done" : "Y",
+      "key" : "-KvkUJL1OT1JpMnRRvl8",
+      "money" : "50.000",
+      "name" : "Tú Trần",
+      "orderTime" : -1,
+      "orderedQuantity" : -2,
+      "quantity" : "5",
+      "sweetLevel" : 2,
+      "updateTime" : "Wed Oct 04 2017 22:23:36 GMT+0700 (+07)"
+    },
+    "-KvkUZ7CBjItAL1DOCKO" : {
+      "bonusOrderedQuantity" : -2,
+      "bonusQuantity" : 0,
+      "campaign" : "-Kvc14daZULVQOCDcuc8",
+      "createTime" : "Fri Oct 06 2017 14:02:37 GMT+0700 (ICT)",
+      "done" : "Y",
+      "key" : "-KvkUZ3ZyFsfGgQe-EmI",
+      "money" : "20.000",
+      "name" : "Cường Phan",
+      "orderTime" : -2,
+      "orderedQuantiry" : -6,
+      "orderedQuantity" : -2,
+      "quantity" : "2",
+      "sweetLevel" : "2",
+      "updateTime" : "Wed Oct 04 2017 22:24:13 GMT+0700 (+07)"
+    },
+    "-KvkVCnUBiIsbGm0wGP-" : {
+      "bonusOrderedQuantity" : -2,
+      "bonusQuantity" : 0,
+      "campaign" : "-Kvc14daZULVQOCDcuc8",
+      "createTime" : "Fri Oct 06 2017 14:05:28 GMT+0700 (ICT)",
+      "done" : "Y",
+      "key" : "-KvBVy0JulQEF_zncQW3",
+      "money" : "20.000",
+      "name" : "Đức Nguyễn",
+      "orderTime" : -2,
+      "orderedQuantity" : -2,
+      "quantity" : "2",
+      "sweetLevel" : "3",
+      "updateTime" : "Wed Oct 04 2017 22:24:05 GMT+0700 (+07)"
+    },
+    "-KvkVKaU2TUPDHPsZnWG" : {
+      "bonusOrderedQuantity" : -5,
+      "bonusQuantity" : 0,
+      "campaign" : "-Kvc14daZULVQOCDcuc8",
+      "createTime" : "Fri Oct 06 2017 14:06:00 GMT+0700 (ICT)",
+      "done" : "Y",
+      "key" : "-KvkVKXtRUf2OrWMSosy",
+      "money" : "50.000",
+      "name" : "Long Lý",
+      "orderTime" : -2,
+      "orderedQuantity" : -5,
+      "quantity" : "5",
+      "sweetLevel" : 2,
+      "updateTime" : "Wed Oct 04 2017 22:23:53 GMT+0700 (+07)"
+    },
+    "-KvkVPzc-CU98c7KkYWA" : {
+      "bonusOrderedQuantity" : -4,
+      "bonusQuantity" : 0,
+      "campaign" : "-Kvc14daZULVQOCDcuc8",
+      "createTime" : "Fri Oct 06 2017 14:06:22 GMT+0700 (ICT)",
+      "done" : "Y",
+      "key" : "-KvkVPwDFg5ha7U6sXNT",
+      "money" : "40.000",
+      "name" : "Tiến Lê",
+      "orderTime" : -2,
+      "orderedQuantity" : -4,
+      "quantity" : "4",
+      "sweetLevel" : "3",
+      "updateTime" : "Wed Oct 04 2017 22:23:57 GMT+0700 (+07)"
+    },
+    "-KvkVWa97EzzkS8gQwUd" : {
+      "bonusOrderedQuantity" : -2,
+      "bonusQuantity" : 0,
+      "campaign" : "-Kvc14daZULVQOCDcuc8",
+      "createTime" : "Fri Oct 06 2017 14:06:49 GMT+0700 (ICT)",
+      "done" : "Y",
+      "key" : "-KvkVWWUGnYyW7lA53WP",
+      "money" : "20.000",
+      "name" : "Khang Đống",
+      "orderTime" : -2,
+      "orderedQuantiry" : -6,
+      "orderedQuantity" : -2,
+      "quantity" : "2",
+      "sweetLevel" : 2,
+      "updateTime" : "Wed Oct 04 2017 22:23:40 GMT+0700 (+07)"
+    },
+    "-KvkVfVevO7tqyvFmnX7" : {
+      "bonusOrderedQuantity" : 0,
+      "bonusQuantity" : 0,
+      "campaign" : "-Kvc14daZULVQOCDcuc8",
+      "createTime" : "Fri Oct 06 2017 14:07:30 GMT+0700 (ICT)",
+      "done" : "Y",
+      "key" : "-KvkVfREaqBRKyZnxcKO",
+      "money" : "20.000",
+      "name" : "Niệm Huỳnh",
+      "orderTime" : -1,
+      "orderedQuantiry" : -6,
+      "orderedQuantity" : 0,
+      "quantity" : "2",
+      "sweetLevel" : 2
+    },
+    "-KvkVmCenEYK58uZkVG0" : {
+      "bonusOrderedQuantity" : -2,
+      "bonusQuantity" : 0,
+      "campaign" : "-Kvc14daZULVQOCDcuc8",
+      "createTime" : "Fri Oct 06 2017 14:07:57 GMT+0700 (ICT)",
+      "done" : "Y",
+      "key" : "-KvkVm8ZV-s1nLf0ZPWq",
+      "money" : "20.000",
+      "name" : "My Lý",
+      "orderTime" : -1,
+      "orderedQuantity" : -2,
+      "quantity" : "2",
+      "sweetLevel" : 2,
+      "updateTime" : "Wed Oct 04 2017 22:23:43 GMT+0700 (+07)"
+    },
+    "-KvknL5p6dhXbtR_OmKE" : {
+      "bonusOrderedQuantity" : 0,
+      "bonusQuantity" : 0,
+      "campaign" : "-Kvc14daZULVQOCDcuc8",
+      "createTime" : "Fri Oct 06 2017 15:29:03 GMT+0700 (ICT)",
+      "done" : "Y",
+      "key" : "-KvknL1eppoUol-7XdAL",
+      "money" : "30.000",
+      "name" : "Anh Nguyễn",
+      "orderTime" : -12,
+      "orderedQuantiry" : -61,
+      "orderedQuantity" : -9,
+      "quantity" : "3",
+      "sweetLevel" : "1",
+      "updateTime" : "Wed Oct 04 2017 22:23:28 GMT+0700 (+07)"
+    },
+    "-KvknQejjcnwt3M8Ukur" : {
+      "bonusOrderedQuantity" : 0,
+      "bonusQuantity" : "1",
+      "campaign" : "-Kvc14daZULVQOCDcuc8",
+      "createTime" : "Fri Oct 06 2017 15:29:26 GMT+0700 (ICT)",
+      "done" : "Y",
+      "key" : "-Ku3XbagwgNvb57AIfLl",
+      "money" : "70.000",
+      "name" : "Anh Nguyễn",
+      "orderTime" : -12,
+      "orderedQuantiry" : -61,
+      "orderedQuantity" : -9,
+      "quantity" : "7",
+      "sweetLevel" : 2,
+      "updateTime" : "Wed Oct 04 2017 22:23:28 GMT+0700 (+07)"
+    },
+    "-KvknaDGcNwodbh30LBn" : {
+      "bonusOrderedQuantity" : 0,
+      "bonusQuantity" : 0,
+      "campaign" : "-Kvc14daZULVQOCDcuc8",
+      "createTime" : "Fri Oct 06 2017 15:30:09 GMT+0700 (ICT)",
+      "done" : "Y",
+      "key" : "-Kvkna9Y4QEJdtuG4zAj",
+      "money" : "20.000",
+      "name" : "Hào Lương",
+      "orderTime" : -1,
+      "orderedQuantiry" : -6,
+      "orderedQuantity" : 0,
+      "quantity" : "2",
+      "sweetLevel" : "3"
+    },
+    "-KwAscCkRl-K14T4bAs_" : {
+      "bonusOrderedQuantity" : 0,
+      "bonusQuantity" : "",
+      "campaign" : "-Kvc14daZULVQOCDcuc8",
+      "createTime" : "Wed Oct 11 2017 21:41:54 GMT+0700 (+07)",
+      "done" : "Y",
+      "key" : "-Ku3Xbal77JGYTCnyGYL",
+      "money" : "20.000",
+      "name" : "Lâm Nguyễn",
+      "orderTime" : -9,
+      "orderedQuantiry" : -6,
+      "orderedQuantity" : 0,
+      "quantity" : "2",
+      "sweetLevel" : "1"
+    },
+    "-KwAsnEPbg9XwhB1v6cP" : {
+      "bonusOrderedQuantity" : 0,
+      "bonusQuantity" : 0,
+      "campaign" : "-Kvc14daZULVQOCDcuc8",
+      "createTime" : "Wed Oct 11 2017 21:42:39 GMT+0700 (+07)",
+      "done" : "Y",
+      "key" : "-Ku3Xbal77JGYTCnyGYL",
+      "money" : "90.000",
+      "name" : "Lâm Nguyễn",
+      "orderKey" : "-KwAsnEPbg9XwhB1v6cP",
+      "orderTime" : -9,
+      "orderedQuantiry" : -6,
+      "orderedQuantity" : 0,
+      "quantity" : "9",
+      "sweetLevel" : "1"
+    },
+    "-KwpNhj776xwsoFYQy6P" : {
+      "bonusOrderedQuantity" : 0,
+      "bonusQuantity" : 0,
+      "campaign" : "-Kwo4K0-mJ_8ww_oDk2S",
+      "createTime" : "Thu Oct 19 2017 23:06:32 GMT+0700 (+07)",
+      "done" : "Y",
+      "money" : "40.000",
+      "name" : "Tiến Lê",
+      "orderTime" : 0,
+      "orderedQuantity" : 0,
+      "quantity" : "4",
+      "sweetLevel" : "3",
+      "userKey" : "-Kwo5df0hr1x2c12fT0U"
+    },
+    "-KwpNmg4UduOUyry56Il" : {
+      "bonusOrderedQuantity" : 0,
+      "bonusQuantity" : 0,
+      "campaign" : "-Kwo4K0-mJ_8ww_oDk2S",
+      "comment" : "nhiều nha đam",
+      "createTime" : "Thu Oct 19 2017 23:06:52 GMT+0700 (+07)",
+      "done" : "Y",
+      "money" : "20.000",
+      "name" : "Cường Phan",
+      "orderTime" : 0,
+      "orderedQuantity" : 0,
+      "quantity" : "2",
+      "sweetLevel" : 2,
+      "userKey" : "-Kwo5TTzVR8Zd2OF_Gdi"
+    },
+    "-KxJK8SFYKGOB2C_sU2Y" : {
+      "bonusOrderedQuantity" : 0,
+      "bonusQuantity" : 0,
+      "campaign" : "-Kwo4K0-mJ_8ww_oDk2S",
+      "createTime" : "Wed Oct 25 2017 23:19:10 GMT+0700 (+07)",
+      "done" : "Y",
+      "money" : "50.000",
+      "name" : "Đạt Nguyễn",
+      "orderKey" : "-KxJK8SFYKGOB2C_sU2Y",
+      "orderTime" : 0,
+      "orderedQuantity" : 0,
+      "quantity" : "5",
+      "sweetLevel" : 2,
+      "userKey" : "-KxJK8LdYRLJCFEA2hgf"
+    },
+    "-KxJKvsNFxSbZHnGRwGn" : {
+      "bonusOrderedQuantity" : 0,
+      "bonusQuantity" : "0",
+      "campaign" : "-Kwo4K0-mJ_8ww_oDk2S",
+      "createTime" : "Wed Oct 25 2017 23:22:37 GMT+0700 (+07)",
+      "done" : "Y",
+      "money" : "30.000",
+      "name" : "Nam Nguyễn Ngọc",
+      "orderTime" : 0,
+      "orderedQuantity" : 0,
+      "quantity" : "3",
+      "sweetLevel" : 2,
+      "userKey" : "-KxJKvovDpTUdirMcHIR"
+    },
+    "-KxJL7auPWTnMH0CWaHz" : {
+      "bonusOrderedQuantity" : 0,
+      "bonusQuantity" : 0,
+      "campaign" : "-Kwo4K0-mJ_8ww_oDk2S",
+      "createTime" : "Wed Oct 25 2017 23:23:29 GMT+0700 (+07)",
+      "done" : "Y",
+      "money" : "40.000",
+      "name" : "Phúc Nguyễn",
+      "orderTime" : 0,
+      "orderedQuantity" : 0,
+      "quantity" : "4",
+      "sweetLevel" : 2,
+      "userKey" : "-KxJL7VF_cpohB0eH_JX"
+    },
+    "-KxJLZnhzzh4oE2DEjtt" : {
+      "bonusOrderedQuantity" : 0,
+      "bonusQuantity" : 0,
+      "campaign" : "-Kwo4K0-mJ_8ww_oDk2S",
+      "createTime" : "Wed Oct 25 2017 23:25:24 GMT+0700 (+07)",
+      "done" : "Y",
+      "money" : "20.000",
+      "name" : "Tiên Trần",
+      "orderTime" : 0,
+      "orderedQuantity" : 0,
+      "quantity" : "2",
+      "sweetLevel" : 2,
+      "userKey" : "-KxJLZhrMPLI_jr1YDD8"
+    },
+    "-KxJLcKJ6_pP4Y9XFz9z" : {
+      "bonusOrderedQuantity" : 0,
+      "bonusQuantity" : 0,
+      "campaign" : "-Kwo4K0-mJ_8ww_oDk2S",
+      "createTime" : "Wed Oct 25 2017 23:25:39 GMT+0700 (+07)",
+      "done" : "Y",
+      "money" : "20.000",
+      "name" : "Cô Lao Công",
+      "orderTime" : 0,
+      "orderedQuantity" : 0,
+      "quantity" : "2",
+      "sweetLevel" : 2,
+      "userKey" : "-KxJLcFGIIzeO1yxSEcz"
+    },
+    "-KxJLgdU8vwpZUCwnAH0" : {
+      "bonusOrderedQuantity" : 0,
+      "bonusQuantity" : 0,
+      "campaign" : "-Kwo4K0-mJ_8ww_oDk2S",
+      "createTime" : "Wed Oct 25 2017 23:25:57 GMT+0700 (+07)",
+      "done" : "Y",
+      "money" : "50.000",
+      "name" : "Giang Võ",
+      "orderTime" : -1,
+      "orderedQuantiry" : -6,
+      "orderedQuantity" : 0,
+      "quantity" : "5",
+      "sweetLevel" : 2,
+      "userKey" : "-Ku3XbakHc_cnwrrdlsa"
     }
   }
 }

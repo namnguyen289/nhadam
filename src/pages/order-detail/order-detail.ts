@@ -49,7 +49,7 @@ export class OrderDetailPage {
   finished() {
     this.cdt.updateOrder(this.order.orderKey, { done: 'Y',money:this.order.money }
       , val => {
-        this.cdt.updateCustomer(this.order.key, {
+        this.cdt.updateCustomer(this.order.userKey, {
           orderedQuantity: this.order.orderedQuantity - this.order.quantity,
           bonusOrderedQuantity: this.order.bonusQuantity>0?0: this.order.bonusOrderedQuantity - this.order.quantity,
           orderTime: this.order.orderTime - 1,
@@ -57,7 +57,7 @@ export class OrderDetailPage {
         }, () => { this.navCtrl.pop(); });
         // subscribe(data=>{
         //   user=data;
-        //   this.db.object("/orders/"+this.order.key).update({
+        //   this.db.object("/orders/"+this.order.userKey).update({
         //     orderedQuantity:user.orderedQuantity -this.order.quantity,
         //     orderTime:user.orderTime - 1
         //   })

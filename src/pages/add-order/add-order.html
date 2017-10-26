@@ -52,6 +52,12 @@
     <ion-label>{{slvl.name}}</ion-label>
     <ion-checkbox checked="{{slvl.lvl == 2}}"  (ionChange)="checkedChange($event,slvl)"></ion-checkbox>
   </ion-item> -->
+  <ion-list inset radio-group [(ngModel)]="user.kind">
+    <ion-item *ngFor="let kind of kinds">
+      <ion-label>{{kind.name}}</ion-label>
+      <ion-radio value="{{kind.key}}"></ion-radio>
+    </ion-item>
+  </ion-list>
   <ion-list inset radio-group [(ngModel)]="user.sweetLevel">
     <ion-item *ngFor="let slvl of sweetLvls">
       <ion-label>{{slvl.name}}</ion-label>

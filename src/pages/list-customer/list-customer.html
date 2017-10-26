@@ -7,10 +7,17 @@
 </ion-header>
 
 <ion-content padding>
-  <ion-searchbar (ionInput)="filterCustomers($event)"></ion-searchbar>
+  <ion-searchbar ng-model="searchKey" (ionInput)="filterCustomers($event)"></ion-searchbar>
   <ion-list>
-    <h2 ion-item *ngFor="let customer of cusList" (click)="itemSelected(customer)">
-    {{ customer.name }}
-    </h2>
+    <ion-item-sliding *ngFor="let customer of cusList">
+      <ion-item (click)="itemSelected(customer)">
+        {{ customer.name }}
+      </ion-item>
+      <ion-item-options side="right">
+          <button ion-button expandable color="danger" (click)="deleteCustomer(customer)">
+            <ion-icon name="trash"></ion-icon>
+          </button>
+        </ion-item-options>
+    </ion-item-sliding>
   </ion-list>
 </ion-content>

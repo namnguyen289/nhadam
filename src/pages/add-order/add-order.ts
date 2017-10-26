@@ -21,6 +21,7 @@ export class AddOrderPage {
 
   user: any;
   sweetLvls: any[];
+  kinds: any[];
   detailFlag: boolean = false;
   orderedQuantity: any;
   bonusOrderedQuantity:any;
@@ -38,7 +39,8 @@ export class AddOrderPage {
     , public cdt: CommonDataProvider) {
     this.loading.present();
     this.user = this.navParams.get("user");
-    this.user.key = this.navParams.get("key");
+    delete(this.user.$key);
+    this.user.userKey = this.navParams.get("key");
     this.user.quantity = 1;
     this.user.sweetLevel = 2;
     this.user.done = 'N';
@@ -46,9 +48,11 @@ export class AddOrderPage {
     this.user.bonusOrderedQuantity = this.user.bonusOrderedQuantity ? this.user.bonusOrderedQuantity : 0;
     this.user.bonusQuantity = this.user.bonusQuantity ? this.user.bonusQuantity : 0;
     this.user.orderTime = this.user.orderTime ? this.user.orderTime : 0;
+    this.user.kind = "nhadam";
     this.orderedQuantity = this.user.orderedQuantity * -1;
     this.bonusOrderedQuantity = this.user.bonusOrderedQuantity * -1;
     this.sweetLvls = cdt.getSweetLevels();
+    this.kinds = cdt.getKinds();
     cdt.getCampaigns().subscribe(data => {
       this.campaigns = data.filter(dt => !dt.done);
       if (this.campaigns.length > 0) {
@@ -92,26 +96,26 @@ export class AddOrderPage {
     this.user.sweetLevelName = slvl.name;
   } */
   save() {
-    if(!this.user.quantity || this.user.quantity.trim() ==="")
+    if(!this.user.quantity || String(this.user.quantity).trim() ==="" || String(this.user.quantity) == "0")
     {
       this.showAlert("Error", "Please input quantity", () => {});
       return;
     }
     this.user.createTime = (new Date()).toString();
-    if (!this.user.key) {
+    if (!this.user.userKey) {
       this.cdt.addNewCustomer({
         name: this.user.name,
         orderedQuantity: 0,
         orderTime: 0
       }, val => {
-        this.user.key = val.key;
+        this.user.userKey = val.key;
         this.cdt.addNewOrder(this.user, data => {
           this.navCtrl.pop();
         });
       });
     } else {
-      this.cdt.addNewOrder(this.user, data => {
-        this.showAlert("Success", "Save successfully", () => { this.navCtrl.pop(); });
+      this.cdt.addNewOrder(this.user, data => {this.navCtrl.pop(); 
+        // this.showAlert("Success", "Save successfully", () => { this.navCtrl.pop(); });
       });
     }
   }

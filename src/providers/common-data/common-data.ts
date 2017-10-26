@@ -12,6 +12,7 @@ import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/databa
 export class CommonDataProvider {
 
   sweetLevels: any[];
+  kinds:any[];
   options:any;
   orderList: FirebaseListObservable<any[]>;
   notFinishedOrders: FirebaseListObservable<any[]>;
@@ -20,13 +21,22 @@ export class CommonDataProvider {
   arrCampaign: any[];
 
   constructor(public db: AngularFireDatabase) {
-    db.list("/sweetLevel", { query: { orderByChild: "lvl" } }).subscribe(val => { this.sweetLevels = val; });
+    db.list("/options/sweetLevel", { query: { orderByChild: "lvl" } }).subscribe(val => { this.sweetLevels = val; });
+    db.list("/options/kind").subscribe(val => { this.kinds = val; });
     db.object('/options').subscribe(val=>this.options = val);
     this.orderList = this.db.list("/orders");
     this.notFinishedOrders = db.list("/orders", { query: { orderByChild: 'done', equalTo: 'N' } });
     this.campaigns = db.list('/campaigns', { query: { orderByChild: 'done' } });
     this.customerList = db.list('/customers');
     this.getCampaigns().subscribe(val=>{this.arrCampaign = val;});
+  }
+  /* kind of water */
+  getKinds(): any[] {
+    return this.kinds;
+  }
+
+  getTextKind(key): string {
+    return this.kinds.filter(val => val.key == key)[0].name;
   }
   /* sweet levels */
   getSweetLevels(): any[] {
@@ -90,6 +100,10 @@ export class CommonDataProvider {
 
   getCustomers(): FirebaseListObservable<any[]> {
     return this.customerList;
+  }
+
+  removeCustomer(key){
+    return this.getCustomers().remove(key);
   }
 
   addNewCustomer(data,callback){

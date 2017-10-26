@@ -20,82 +20,93 @@ export class ListCustomerPage {
   customers:FirebaseListObservable<any[]>;
   cusList:any[];
   bCusList:any[];
-  cus:any = [
-    {name:'Anh Nguyễn'},
-    {name:'Cậu Cải'},
-    {name:'Châu Trương'},
-    {name:'Chồng mập'},
-    {name:'Cường Lê'},
-    {name:'Cường Phan'},
-    {name:'Dì 7'},
-    {name:'Dung'},
-    {name:'Dũng Đào SD'},
-    {name:'Dung Đỗ'},
-    {name:'Dũng Nguyễn'},
-    {name:'Đoàn Nguyễn'},
-    {name:'Đức Nguyễn'},
-    {name:'Giang Nguyễn'},
-    {name:'Giang Phạm'},
-    {name:'Giang Võ'},
-    {name:'Hải Vũ'},
-    {name:'Hạnh SD'},
-    {name:'Hào Lương'},
-    {name:'Hằng Hồ'},
-    {name:'Hòa Nguyễn'},
-    {name:'Hoàng Trần'},
-    {name:'Huy Hoang'},
-    {name:'Khang Đống'},
-    {name:'Khiêm'},
-    {name:'Kiểu Lê'},
-    {name:'Lâm Nguyễn'},
-    {name:'Lợi Đỗ'},
-    {name:'Lực Dương'},
-    {name:'Minh Đỗ'},
-    {name:'Nghĩa Nguyễn'},
-    {name:'Ngọc Anh'},
-    {name:'Nhà chú'},
-    {name:'Nhứt Trịnh'},
-    {name:'Niệm Huỳnh'},
-    {name:'Oanh Nguyễn'},
-    {name:'Phú Lâm'},
-    {name:'Phúc Bùi'},
-    {name:'Phượng Nguyễn'},
-    {name:'Sơn Lê'},
-    {name:'Thành Phùng'},
-    {name:'Thảo'},
-    {name:'Thọ'},
-    {name:'Thoa Điền'},
-    {name:'Tiến Lê'},
-    {name:'Tiên Nguyễn'},
-    {name:'Trang Trương'},
-    {name:'Tuấn Châu'},
-    {name:'Tuyền'},
-    {name:'Tuyền Trương'},
-    {name:'Việt Trình'},
-    {name:'Vũ Ngô'},
-    {name:'Long Lý'},
-    {name:'Diễm Huỳnh'},
-    {name:'Ngọc Nguyễn'},
-  ];
+  searchKey:string;
+  // cus:any = [
+  //   {name:'Anh Nguyễn'},
+  //   {name:'Cậu Cải'},
+  //   {name:'Châu Trương'},
+  //   {name:'Chồng mập'},
+  //   {name:'Cường Lê'},
+  //   {name:'Cường Phan'},
+  //   {name:'Dì 7'},
+  //   {name:'Dung'},
+  //   {name:'Dũng Đào SD'},
+  //   {name:'Dung Đỗ'},
+  //   {name:'Dũng Nguyễn'},
+  //   {name:'Đoàn Nguyễn'},
+  //   {name:'Đức Nguyễn'},
+  //   {name:'Giang Nguyễn'},
+  //   {name:'Giang Phạm'},
+  //   {name:'Giang Võ'},
+  //   {name:'Hải Vũ'},
+  //   {name:'Hạnh SD'},
+  //   {name:'Hào Lương'},
+  //   {name:'Hằng Hồ'},
+  //   {name:'Hòa Nguyễn'},
+  //   {name:'Hoàng Trần'},
+  //   {name:'Huy Hoang'},
+  //   {name:'Khang Đống'},
+  //   {name:'Khiêm'},
+  //   {name:'Kiểu Lê'},
+  //   {name:'Lâm Nguyễn'},
+  //   {name:'Lợi Đỗ'},
+  //   {name:'Lực Dương'},
+  //   {name:'Minh Đỗ'},
+  //   {name:'Nghĩa Nguyễn'},
+  //   {name:'Ngọc Anh'},
+  //   {name:'Nhà chú'},
+  //   {name:'Nhứt Trịnh'},
+  //   {name:'Niệm Huỳnh'},
+  //   {name:'Oanh Nguyễn'},
+  //   {name:'Phú Lâm'},
+  //   {name:'Phúc Bùi'},
+  //   {name:'Phượng Nguyễn'},
+  //   {name:'Sơn Lê'},
+  //   {name:'Thành Phùng'},
+  //   {name:'Thảo'},
+  //   {name:'Thọ'},
+  //   {name:'Thoa Điền'},
+  //   {name:'Tiến Lê'},
+  //   {name:'Tiên Nguyễn'},
+  //   {name:'Trang Trương'},
+  //   {name:'Tuấn Châu'},
+  //   {name:'Tuyền'},
+  //   {name:'Tuyền Trương'},
+  //   {name:'Việt Trình'},
+  //   {name:'Vũ Ngô'},
+  //   {name:'Long Lý'},
+  //   {name:'Diễm Huỳnh'},
+  //   {name:'Ngọc Nguyễn'},
+  // ];
   constructor(public navCtrl: NavController, 
     public navParams: NavParams,
     public db:AngularFireDatabase,
     public alertCtrl: AlertController) {
-    this.customers = db.list("/customers",{query:{orderByChild:"orderTime"}});
+    this.customers = db.list("/customers",{query:{orderByChild:"name"}});
     this.customers.subscribe(val=>{
       this.cusList = val;
-      this.bCusList = JSON.parse(JSON.stringify(this.cusList));
+
+      this.bCusList = this.cloneData(this.cusList);
     },err=>{
       this.showAlert("Error",err);
     });
   }
+  cloneData(ls:any[]):any[]{
+    let results:any[]=[];
+    ls.forEach(dt=>{
+      let tmpDt = JSON.parse(JSON.stringify(dt));
+      tmpDt.$key = dt.$key;
+      results.push(tmpDt);
+    });
+    return results;
+  }
   itemSelected(item){
-    console.log(JSON.stringify(item));
+    // console.log(JSON.stringify(item));
     this.navCtrl.push(AddOrderPage,{user:item,key:item.$key});
   }
   filterCustomers(event){
 
-    this.cusList = JSON.parse(JSON.stringify(this.bCusList));
+    this.cusList = this.cloneData(this.bCusList);
     let val = event.target.value;
     if(val && val.trim() !=""){
       this.cusList = this.cusList.filter(item=>{
@@ -107,7 +118,13 @@ export class ListCustomerPage {
     }
   }
 
+  deleteCustomer(cus){
+    if(cus.$key)
+      this.customers.remove(cus.$key);
+  }
+
   ionViewDidLoad() {
+    this.searchKey = "";
     console.log('ionViewDidLoad ListCustomerPage');
   }
 
